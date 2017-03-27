@@ -1,7 +1,6 @@
 import { NgModule, ModuleWithProviders} from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
-import { AuthenticationModule } from '@freescan/authentication';
 import { HttpService } from '@freescan/http';
 import { DropdownModule } from 'ng2-bootstrap/dropdown';
 
@@ -23,13 +22,13 @@ import { UnavailableComponent } from './src/app/unavailable/unavailable.componen
 
 // Export everything individually too for consumers
 export * from './src';
+export * from './src/environments/environment.interface';
 
 export const MODULES: any = [
     BrowserModule, // Do not use with Universal
     HttpModule,
     FreeScanRoutingModule,
     DropdownModule.forRoot(),
-    AuthenticationModule.forRoot(this.environment.passport),
 ];
 export const DIRECTIVES: any = [
     NAV_DROPDOWN_DIRECTIVES,
