@@ -13,10 +13,6 @@
     "target": "es5",
     "module": "es2015",
     "baseUrl": "./src",
-    "paths": {
-      "@fs/*": ["app/*"],
-      "@env/*": ["environments/*"]
-    },
     "typeRoots": [
       "./node_modules/@types"
     ]

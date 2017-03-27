@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { FullLayoutComponent } from '@fs/layouts/full-layout.component';
-import { HomeComponent } from '@fs/home/home.component';
-import { UnavailableComponent } from '@fs/unavailable/unavailable.component';
+import { FullLayoutComponent } from './layouts/full-layout.component';
+import { HomeComponent } from './home/home.component';
+import { UnavailableComponent } from './unavailable/unavailable.component';
 
 export const freeScanRoutes: Routes = [
     // All routes that appear within the FullLayout
