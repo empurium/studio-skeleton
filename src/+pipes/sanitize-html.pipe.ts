@@ -2,8 +2,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 
-@Pipe({ name: 'finSanitizeHtml' })
-export class FinSanitizeHtmlPipe implements PipeTransform {
+@Pipe({ name: 'freescanSanitizeHtml' })
+export class FreeScanSanitizeHtmlPipe implements PipeTransform {
     constructor(private sanitizer: DomSanitizer) {
     }
 
