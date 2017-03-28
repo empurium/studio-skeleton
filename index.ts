@@ -5,7 +5,7 @@ import { HttpService } from '@freescan/http';
 import { DropdownModule } from 'ng2-bootstrap/dropdown';
 
 // Environment
-import { ENV, Environment } from './src/environments/environment.interface';
+import { FREESCAN_ENV, Environment } from './src/app/+models';
 
 // Routing Module
 import { FreeScanRoutingModule } from './src/app/freescan.routing';
@@ -21,7 +21,6 @@ import { HomeComponent } from './src/app/home/home.component';
 
 // Export everything individually too for consumers
 export * from './src';
-export * from './src/environments/environment.interface';
 
 export const MODULES: any = [
     BrowserModule, // Do not use with Universal
@@ -59,7 +58,7 @@ export class FreeScanModule {
         return {
             ngModule:  FreeScanModule,
             providers: [
-                { provide: ENV, useValue: environment },
+                { provide: FREESCAN_ENV, useValue: environment },
                 HttpService,
             ],
         };

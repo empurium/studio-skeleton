@@ -1,17 +1,17 @@
 import { OpaqueToken } from '@angular/core';
 
-export const ENV: OpaqueToken = new OpaqueToken('environment.configuration');
+export const FREESCAN_ENV: OpaqueToken = new OpaqueToken('freescan.environment.configuration');
 
-export interface Environment {
-    production: boolean;
+export class Environment {
+    public production: boolean;
 
-    api: {
+    public api: {
         passport: string;
         cashier: string;
         files: string;
     };
 
-    passport: {
+    public passport: {
         login: string;
         clientId: string;
         redirectURI: string;
