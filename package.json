@@ -28,7 +28,8 @@
     "@freescan/http": "^1.0.5",
     "angular-oauth2-oidc": "^1.0.20",
     "angular2-jwt": "^0.2.0",
-    "ng2-bootstrap": "1.4.0"
+    "ng2-bootstrap": "1.4.0",
+    "ng2-bootstrap-growl": "^0.0.5"
   },
   "devDependencies": {
     "@angular/compiler": "^4.0.0",
