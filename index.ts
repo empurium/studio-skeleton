@@ -2,7 +2,6 @@ import { NgModule, ModuleWithProviders} from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpService } from '@freescan/http';
-import { DropdownModule } from 'ng2-bootstrap/dropdown';
 
 // Environment
 import { FREESCAN_ENV, Environment } from './src/app/+models';
@@ -27,7 +26,6 @@ export const MODULES: any = [
     BrowserModule, // Do not use with Universal
     HttpModule,
     FreeScanRoutingModule,
-    DropdownModule.forRoot(),
 ];
 export const DIRECTIVES: any = [
     NAV_DROPDOWN_DIRECTIVES,
