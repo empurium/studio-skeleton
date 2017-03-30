@@ -36,14 +36,6 @@
   dependencies:
     tsickle "^0.21.0"
 
-"@freescan/authentication@^1.0.2":
-  version "1.0.7"
-  resolved "https://registry.yarnpkg.com/@freescan/authentication/-/authentication-1.0.7.tgz#7622bee30540a07938f4b693e3ba9fec686ecb80"
-  dependencies:
-    "@freescan/skeleton" "^1.0.5"
-    angular-oauth2-oidc "^1.0.20"
-    angular2-jwt "^0.2.0"
-
 "@freescan/http@^1.0.5":
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/@freescan/http/-/http-1.0.5.tgz#d30b5b9e0eda6dbddd8cf78694ae5eb38f8ab15e"
@@ -53,18 +45,6 @@
     angular-oauth2-oidc "^1.0.20"
     lodash "^4.17.4"
     rxjs "^5.2.0"
-
-"@freescan/skeleton@^1.0.5":
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/@freescan/skeleton/-/skeleton-1.0.6.tgz#6df114b234d7111f5272cd79125fa42c864af9fd"
-  dependencies:
-    "@angular/core" "^4.0.0"
-    "@angular/http" "^4.0.0"
-    "@angular/platform-browser" "^4.0.0"
-    "@angular/router" "^4.0.0"
-    "@freescan/authentication" "^1.0.2"
-    "@freescan/http" "^1.0.5"
-    ng2-bootstrap "^1.6.0"
 
 angular-oauth2-oidc@^1.0.20:
   version "1.0.20"

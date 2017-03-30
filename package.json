@@ -1,6 +1,6 @@
 {
   "name": "@freescan/skeleton",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "FreeScan Skeleton",
   "main": "index.ts",
   "scripts": {
@@ -25,8 +25,9 @@
     "@angular/http": "^4.0.0",
     "@angular/platform-browser": "^4.0.0",
     "@angular/router": "^4.0.0",
-    "@freescan/authentication": "^1.0.2",
     "@freescan/http": "^1.0.5",
+    "angular-oauth2-oidc": "^1.0.20",
+    "angular2-jwt": "^0.2.0",
     "ng2-bootstrap": "^1.6.0"
   },
   "devDependencies": {

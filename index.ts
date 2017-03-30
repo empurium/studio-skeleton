@@ -1,6 +1,7 @@
 import { NgModule, ModuleWithProviders} from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
+import { OAuthService } from 'angular-oauth2-oidc';
 import { HttpService } from '@freescan/http';
 
 // Environment
@@ -8,6 +9,9 @@ import { FREESCAN_ENV, Environment } from './src/app/+models';
 
 // Routing Module
 import { FreeScanRoutingModule } from './src/app/freescan.routing';
+
+// Services
+import { AuthenticationService } from './src/app/+services';
 
 // Shared
 import { NAV_DROPDOWN_DIRECTIVES } from './src/app/+directives/nav-dropdown.directive';
@@ -59,7 +63,13 @@ export class FreeScanModule {
             ngModule:  FreeScanModule,
             providers: [
                 { provide: FREESCAN_ENV, useValue: environment },
+                OAuthService,
                 HttpService,
+                {
+                    provide:  AuthenticationService,
+                    useClass: AuthenticationService,
+                    deps:     [OAuthService, FREESCAN_ENV],
+                },
             ],
         };
     }
