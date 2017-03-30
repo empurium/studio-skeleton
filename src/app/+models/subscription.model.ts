@@ -6,5 +6,5 @@ export class Subscription {
 }
 
 export class SubscriptionResponse extends Response {
-    public data: Subscription;
+    public data: Subscription[];
 }
