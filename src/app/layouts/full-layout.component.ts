@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { BootstrapGrowlService, BootstrapAlertType } from 'ng2-bootstrap-growl';
 
 import { AuthenticationService } from '../+services/authentication.service';
 
@@ -10,7 +12,9 @@ export class FullLayoutComponent {
     public disabled: boolean           = false;
     public status: { isopen: boolean } = { isopen: false };
 
-    constructor(private authentication: AuthenticationService) {
+    constructor(private router: Router,
+                private growl: BootstrapGrowlService,
+                private authentication: AuthenticationService) {
     }
 
     public toggled(open: boolean): void {
@@ -32,6 +36,12 @@ export class FullLayoutComponent {
     }
 
     public logout(): boolean {
-        return this.authentication.logout();
+        if (this.authentication.logout()) {
+            this.growl.addAlert('You are now logged out.', BootstrapAlertType.SUCCESS);
+            this.router.navigate(['/']);
+            return true;
+        }
+
+        return false;
     }
 }

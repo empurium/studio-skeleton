@@ -1,6 +1,6 @@
 {
   "name": "@freescan/skeleton",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "FreeScan Skeleton",
   "main": "index.ts",
   "scripts": {
