@@ -2,7 +2,8 @@ import { NgModule, ModuleWithProviders} from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { OAuthService } from 'angular-oauth2-oidc';
-import { DropdownModule } from 'ng2-bootstrap';
+import { DropdownModule } from 'ng2-bootstrap/dropdown';
+import { ModalModule } from 'ng2-bootstrap/modal';
 import { BootstrapGrowlModule } from 'ng2-bootstrap-growl';
 import { HttpService } from '@freescan/http';
 
@@ -33,6 +34,7 @@ export const MODULES: any = [
     HttpModule,
     BootstrapGrowlModule,
     DropdownModule.forRoot(),
+    ModalModule.forRoot(),
     FreeScanRoutingModule,
 ];
 export const DIRECTIVES: any = [
