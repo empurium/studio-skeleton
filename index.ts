@@ -1,4 +1,4 @@
-import { NgModule, ModuleWithProviders} from '@angular/core';
+import { NgModule, ModuleWithProviders } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { OAuthService } from 'angular-oauth2-oidc';
@@ -37,11 +37,13 @@ export const MODULES: any = [
     ModalModule.forRoot(),
     FreeScanRoutingModule,
 ];
+
 export const DIRECTIVES: any = [
     NAV_DROPDOWN_DIRECTIVES,
     SIDEBAR_TOGGLE_DIRECTIVES,
     AsideToggleDirective,
 ];
+
 export const COMPONENTS: any = [
     FullLayoutComponent,
     HomeComponent,
@@ -54,6 +56,8 @@ export const COMPONENTS: any = [
     ],
 
     exports: [
+        ModalModule,
+
         ...DIRECTIVES,
         ...COMPONENTS,
     ],
