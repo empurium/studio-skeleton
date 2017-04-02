@@ -11,7 +11,7 @@
     "target": "es5",
     "baseUrl": "./src",
     "paths": {
-      "@xyz/*": ["app/*"],
+      "@freescan/*": ["app/*"],
       "@env/*": ["environments/*"]
     },
     "typeRoots": [
