@@ -39,6 +39,8 @@
     "curly": true,
     "eofline": true,
     "forin": true,
+    "import-blacklist": [true, "rxjs"],
+    "import-spacing": true,
     "indent": [
       true,
       "spaces"
@@ -68,7 +70,8 @@
     "no-construct": true,
     "no-debugger": true,
     "no-duplicate-variable": true,
-    "no-empty": true,
+    "no-empty": false,
+    "no-empty-interface": true,
     "no-eval": true,
     "no-inferrable-types": false,
     "no-internal-module": false,
@@ -155,6 +158,7 @@
       "check-separator",
       "check-type"
     ],
+
     "directive-selector": [true, "attribute", "freescan", "camelCase"],
     "component-selector": [true, "element", "freescan", "kebab-case"],
     "pipe-naming": [true, "camelCase", "freescan"],
@@ -168,6 +172,8 @@
     "use-pipe-transform-interface": true,
     "component-class-suffix": true,
     "directive-class-suffix": true,
+    "no-access-missing-member": true,
+    "templates-use-public": true,
     "invoke-injectable": true
   }
 }

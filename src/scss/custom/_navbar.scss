@@ -1,0 +1,80 @@
+header.navbar {
+  border: 0;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.35);
+}
+
+.navbar {
+  .form-inline {
+    i {
+      color: $navbar-color;
+    }
+    .form-control {
+      margin-top: -3px;
+      color: $navbar-color;
+      border: 0;
+
+      &::placeholder {
+        color: $navbar-color;
+      }
+    }
+    .form-control::-webkit-input-placeholder {
+      color: $navbar-color;
+    }
+    .form-control:-moz-placeholder {
+      color: $navbar-color;
+    }
+    .form-control::-moz-placeholder {
+      color: $navbar-color;
+    }
+    .form-control:-ms-input-placeholder {
+      color: $navbar-color;
+    }
+  }
+
+  .nav-item {
+    .nav-link.nav-pill {
+      width: 32px;
+      height: 32px;
+      padding: 0;
+      line-height: 32px;
+      border: 1px solid $navbar-color;
+      border-radius: 50em;
+
+      &:hover {
+        border-color: $navbar-hover-color;
+      }
+
+      i {
+        vertical-align: top;
+      }
+
+      .badge-pill {
+        margin-top: -18px;
+        margin-left: -5px;
+        border: 2px solid #fff !important;
+        line-height: 14px;
+      }
+
+      &.avatar {
+        width: 38px;
+        height: 38px;
+
+        img {
+          width: 36px;
+          height: 36px;
+          margin: 0;
+          border: 0;
+        }
+
+        .badge {
+          margin-top: -22px;
+          margin-left: 5px;
+        }
+
+        &.dropdown-toggle:after {
+          display: none;
+        }
+      }
+    }
+  }
+}

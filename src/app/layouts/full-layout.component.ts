@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 import { BootstrapGrowlService, BootstrapAlertType } from 'ng2-bootstrap-growl';
 
@@ -7,6 +7,8 @@ import { AuthenticationService } from '../+services/authentication.service';
 @Component({
     selector:    'freescan-dashboard',
     templateUrl: './full-layout.component.html',
+    styleUrls:   ['../../scss/style.scss'],
+    encapsulation: ViewEncapsulation.None,
 })
 export class FullLayoutComponent {
     public disabled: boolean           = false;

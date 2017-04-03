@@ -24,6 +24,7 @@ import { AsideToggleDirective } from './src/app/+directives/aside.directive';
 // Components
 import { FullLayoutComponent } from './src/app/layouts/full-layout.component';
 import { HomeComponent } from './src/app/home/home.component';
+import { LoadingComponent } from './src/app/loading/loading.component';
 import { UnavailableComponent } from './src/app/unavailable/unavailable.component';
 
 // Export everything individually too for consumers
@@ -47,8 +48,10 @@ export const DIRECTIVES: any = [
 export const COMPONENTS: any = [
     FullLayoutComponent,
     HomeComponent,
+    LoadingComponent,
     UnavailableComponent,
 ];
+
 
 @NgModule({
     imports: [

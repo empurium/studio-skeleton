@@ -1,0 +1,15 @@
+@import 'custom/animate';
+@import 'custom/buttons';
+@import 'custom/growl';
+@import 'custom/navbar';
+@import 'custom/sidebar';
+@import 'custom/tables';
+
+.main .container-fluid {
+  padding: 25px 30px;
+}
+
+.img-fluid-full {
+  width: 100%;
+  height: auto;
+}

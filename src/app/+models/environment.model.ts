@@ -4,6 +4,7 @@ export const FREESCAN_ENV: OpaqueToken = new OpaqueToken('freescan.environment.c
 
 export class Environment {
     public production: boolean;
+    public staging: boolean;
 
     public api: {
         passport: string;

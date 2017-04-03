@@ -5,4 +5,5 @@ export * from './app/+directives';
 export * from './app/+services';
 export * from './app/layouts';
 export * from './app/home';
+export * from './app/loading';
 export * from './app/unavailable';

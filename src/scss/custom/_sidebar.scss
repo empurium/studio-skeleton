@@ -1,0 +1,32 @@
+.sidebar {
+  z-index: 1000;
+  padding-top: 20px;
+  box-shadow: -1px 0px 5px 0px rgba(0,0,0,0.75);
+}
+
+.sidebar .sidebar-nav .nav {
+  .nav-title {
+    span {
+      position: relative;
+      display: inline-block;
+
+      &:before, &:after {
+        position: absolute;
+        top: 50%;
+        width: 25px;
+        height: 1px;
+        margin-top: -1px;
+        content: '';
+        border-bottom: 1px solid darken($sidebar-bg, 20%);
+      }
+
+      &:before {
+        left: -30px;
+      }
+
+      &:after {
+        right: -30px;
+      }
+    }
+  }
+}
