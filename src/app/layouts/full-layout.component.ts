@@ -7,6 +7,7 @@ import { AuthenticationService } from '../+services/authentication.service';
 @Component({
     selector:    'freescan-dashboard',
     templateUrl: './full-layout.component.html',
+    styleUrls:   ['../../scss/style.scss'],
 })
 export class FullLayoutComponent {
     public disabled: boolean           = false;
