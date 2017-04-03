@@ -1,3 +1,14 @@
+// Copy _bootstrap-variables and _custom-variables to your repository
+
+// Import our own custom variables before Bootstrap sets them using !default
+// Then define our own variable customizations after Bootstrap
+
+// Note: Verify correct path on the $navbar-brand-logo
+
+@import './bootstrap-variables';
+@import '~bootstrap/scss/variables';
+
+
 // Bootstrap overrides
 
 $gray-dark:                 #384042;
@@ -65,7 +76,9 @@ $navbar-border: (
 );
 $navbar-brand-width:                250px;
 $navbar-brand-bg:                   $brand-primary;
-$navbar-brand-logo:                 url('../img/720global-logo.png');
+// Path links from node_modules/@freescan/skeleton
+// back into the consumer repository!
+$navbar-brand-logo:                 url('../../../../../src/img/720global-logo.png');
 $navbar-brand-logo-size:            180px auto;
 $navbar-brand-border: (
     bottom: (
