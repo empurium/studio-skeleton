@@ -24,9 +24,9 @@ export interface Navigation {
 export class FullLayoutComponent implements OnInit {
     @Input() public navigation: Navigation[] = [];
 
-    constructor(public router: Router,
-                public growl: BootstrapGrowlService,
-                public authentication: AuthenticationService) {
+    constructor(protected router: Router,
+                protected growl: BootstrapGrowlService,
+                protected authentication: AuthenticationService) {
     }
 
     /**
