@@ -31,28 +31,22 @@
     <div class="sidebar">
         <nav class="sidebar-nav">
             <ul class="nav">
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="/" routerLinkActive="active">
-                        <i class="icon-home"></i> Home
-                    </a>
-                    <a *ngIf="!authenticated()" (click)="login()" class="nav-link" href="#">
-                        <i class="icon-login"></i> Login to The Unseen
-                    </a>
-                    <a routerLink="/philosophy" routerLinkActive="active" class="nav-link">
-                        <i class="icon-book-open"></i> Our Philosophy
-                    </a>
-                    <a routerLink="/press" routerLinkActive="active" class="nav-link">
-                        <i class="icon-camrecorder"></i> In the Press
-                    </a>
-                    <a routerLink="/testimonials" routerLinkActive="active" class="nav-link">
-                        <i class="icon-trophy"></i> Testimonials
-                    </a>
-                    <a routerLink="/resources" routerLinkActive="active" class="nav-link">
-                        <i class="icon-paper-clip"></i> Resources
-                    </a>
-                    <a routerLink="/contact" routerLinkActive="active" class="nav-link">
-                        <i class="icon-speech"></i> Contact Us
-                    </a>
+                <li class="nav-item" *ngFor="let item of navigation">
+                    <span class *ngIf="item.routerLink && !item.click">
+                        <a *ngIf="show(item)"
+                           [routerLink]="item.routerLink"
+                           routerLinkActive="active"
+                           class="nav-link {{ item.classes }}">
+                            <i class="{{ item.icon }}"></i> {{ item.label }}
+                        </a>
+                    </span>
+                    <span class *ngIf="item.click && !item.routerLink">
+                        <a *ngIf="show(item)"
+                           (click)="item.click()" href="#"
+                           class="nav-link {{ item.classes }}">
+                            <i class="{{ item.icon }}"></i> {{ item.label }}
+                        </a>
+                    </span>
                 </li>
             </ul>
         </nav>
