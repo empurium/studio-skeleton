@@ -15,6 +15,21 @@ export class RoleService {
                 @Inject(FREESCAN_ENV) protected environment: Environment) {
     }
 
+    /**
+     * Returns whether or not the current user has the specified role.
+     */
+    public has(role: string): boolean {
+        if (!this.roles) {
+            return false;
+        }
+
+        return this.roles.indexOf(role) > 0;
+    }
+
+    /**
+     * Request the roles for the currently authenticated user, or
+     * undefined if the user is not authenticated.
+     */
     public all(): Observable<string[]|undefined> {
         if (!this.authentication.authenticated()) {
             return Observable.of(this.roles);
