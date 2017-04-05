@@ -1,8 +1,9 @@
-import { Component, ViewEncapsulation, Input, OnInit } from '@angular/core';
+import { Component, ViewEncapsulation, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { BootstrapGrowlService, BootstrapAlertType } from 'ng2-bootstrap-growl';
 
 import { AuthenticationService } from '../+services/authentication.service';
+import { RoleService } from '../+services/role.service';
 
 export interface Navigation {
     routerLink?: string;
@@ -21,12 +22,13 @@ export interface Navigation {
     styleUrls:   ['../../scss/style.scss'],
     encapsulation: ViewEncapsulation.None,
 })
-export class FullLayoutComponent implements OnInit {
+export class FullLayoutComponent {
     @Input() public navigation: Navigation[] = [];
 
     constructor(protected router: Router,
                 protected growl: BootstrapGrowlService,
-                protected authentication: AuthenticationService) {
+                protected authentication: AuthenticationService,
+                protected roles: RoleService) {
     }
 
     /**
@@ -34,8 +36,8 @@ export class FullLayoutComponent implements OnInit {
      * saves to local storage, and then removes it from the URL.
      * Performed in AppComponent to remove from the URL as early as possible.
      */
-    public ngOnInit(): void {
-        this.authentication.attemptLogin();
+    public attemptLogin(): boolean {
+        return this.authentication.attemptLogin();
     }
 
     /**
