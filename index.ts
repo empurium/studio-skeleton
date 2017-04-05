@@ -14,7 +14,8 @@ import { FREESCAN_ENV, Environment } from './src/app/+models';
 import { FreeScanRoutingModule } from './src/app/freescan.routing';
 
 // Services
-import { AuthenticationService } from './src/app/+services';
+import { AuthenticationService } from './src/app/+services/authentication.service';
+import { RoleService } from './src/app/+services/role.service';
 
 // Shared
 import { NAV_DROPDOWN_DIRECTIVES } from './src/app/+directives/nav-dropdown.directive';
@@ -82,6 +83,11 @@ export class FreeScanModule {
                     provide:  AuthenticationService,
                     useClass: AuthenticationService,
                     deps:     [OAuthService, FREESCAN_ENV],
+                },
+                {
+                    provide:  RoleService,
+                    useClass: RoleService,
+                    deps:     [HttpService, AuthenticationService, FREESCAN_ENV],
                 },
             ],
         };
