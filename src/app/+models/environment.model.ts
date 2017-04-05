@@ -10,6 +10,7 @@ export class Environment {
         passport: string;
         cashier: string;
         files: string;
+        publications: string;
     };
 
     public passport: {
