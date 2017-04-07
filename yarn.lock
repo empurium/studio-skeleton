@@ -40,9 +40,9 @@
   dependencies:
     tsickle "^0.21.0"
 
-"@freescan/http@^1.0.5":
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/@freescan/http/-/http-1.0.5.tgz#d30b5b9e0eda6dbddd8cf78694ae5eb38f8ab15e"
+"@freescan/http@^1.0.6":
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/@freescan/http/-/http-1.0.6.tgz#6a14c595a2e7fad63a3992d2288b7bb04f36ed04"
   dependencies:
     "@angular/core" "^4.0.0"
     "@angular/http" "^4.0.0"
