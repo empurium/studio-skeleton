@@ -5,4 +5,5 @@ export * from './stripe.model';
 export * from './gateway.model';
 export * from './plan.model';
 export * from './subscription.model';
+export * from './tier.model';
 export * from './article.model';

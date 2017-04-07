@@ -10,4 +10,5 @@ export * from './app/unavailable';
 // Do not use barrels for services...
 export * from './app/+services/authentication.service';
 export * from './app/+services/role.service';
+export * from './app/+services/tier.service';
 export * from './app/+services/article.service';
