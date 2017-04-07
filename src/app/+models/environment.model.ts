@@ -8,6 +8,7 @@ export class Environment {
 
     public api: {
         passport: string;
+        vinyl: string;
         cashier: string;
         files: string;
         publications: string;

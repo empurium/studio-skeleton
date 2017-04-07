@@ -16,6 +16,7 @@ import { FreeScanRoutingModule } from './src/app/freescan.routing';
 // Services
 import { AuthenticationService } from './src/app/+services/authentication.service';
 import { RoleService } from './src/app/+services/role.service';
+import { TierService } from './src/app/+services/tier.service';
 import { ArticleService } from './src/app/+services/article.service';
 
 // Shared
@@ -89,6 +90,11 @@ export class FreeScanModule {
                     provide:  RoleService,
                     useClass: RoleService,
                     deps:     [HttpService, AuthenticationService, FREESCAN_ENV],
+                },
+                {
+                    provide:  TierService,
+                    useClass: TierService,
+                    deps:     [HttpService, FREESCAN_ENV],
                 },
                 {
                     provide:  ArticleService,
