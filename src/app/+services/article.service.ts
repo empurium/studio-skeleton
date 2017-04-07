@@ -1,4 +1,5 @@
 import { Injectable, Inject } from '@angular/core';
+import * as _ from 'lodash';
 import { HttpService } from '@freescan/http';
 import { Observable } from 'rxjs/Observable';
 
@@ -67,7 +68,7 @@ export class ArticleService {
     public put(article: Article): Observable<ArticleResponse> {
         return this.http
             .hostname(this.environment.api.publications)
-            .put(`articles/${article.id}`, article);
+            .put(`articles/${article.id}`, _.omit(article, ['id', 'is_published']));
     }
 
     /**
