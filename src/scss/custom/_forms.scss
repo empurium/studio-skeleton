@@ -1,0 +1,7 @@
+.form-control.input-lg {
+  font-size: 1.5em;
+}
+
+.ng-invalid:not(form, .ng-pristine) {
+  border-left: 3px solid $brand-danger;
+}
