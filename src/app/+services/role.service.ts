@@ -8,7 +8,7 @@ import { AuthenticationService } from '../+services/authentication.service';
 
 @Injectable()
 export class RoleService {
-    protected roles: string[];
+    protected roles: string[] = null;
 
     constructor(protected http: HttpService,
                 protected authentication: AuthenticationService,
@@ -19,6 +19,10 @@ export class RoleService {
      * Returns whether or not the current user has the specified role.
      */
     public has(role: string): boolean {
+        if (!this.authentication.authenticated()) {
+            return false;
+        }
+
         if (!this.roles) {
             return false;
         }
@@ -30,8 +34,9 @@ export class RoleService {
      * Request the roles for the currently authenticated user, or
      * undefined if the user is not authenticated.
      */
-    public all(): Observable<string[]|undefined> {
+    public all(): Observable<string[]|null> {
         if (!this.authentication.authenticated()) {
+            this.bust();
             return Observable.of(this.roles);
         }
 
@@ -43,8 +48,15 @@ export class RoleService {
             .hostname(this.environment.api.passport)
             .get(`users/${this.authentication.userId()}`)
             .map((response: UserResponse) => {
-                this.roles = response.data.roles;
-                return response.data.roles;
+                this.roles = response.data.roles || [];
+                return this.roles;
             });
+    }
+
+    /**
+     * Bust the client-side cache.
+     */
+    public bust(): void {
+        this.roles = null;
     }
 }
