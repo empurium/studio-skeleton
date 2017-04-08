@@ -19,6 +19,7 @@ import { FreeScanRoutingModule } from './src/app/freescan.routing';
 import { AuthenticationService } from './src/app/+services/authentication.service';
 import { RoleService } from './src/app/+services/role.service';
 import { TierService } from './src/app/+services/tier.service';
+import { AlertService } from './src/app/+services/alert.service';
 import { ArticleService } from './src/app/+services/article.service';
 
 // Shared
@@ -93,6 +94,7 @@ export class FreeScanModule {
                 { provide: ToastOptions, useClass: ToastConfig },
                 OAuthService,
                 HttpService,
+                AlertService,
                 {
                     provide:  AuthenticationService,
                     useClass: AuthenticationService,

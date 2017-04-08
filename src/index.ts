@@ -11,4 +11,5 @@ export * from './app/unavailable';
 export * from './app/+services/authentication.service';
 export * from './app/+services/role.service';
 export * from './app/+services/tier.service';
+export * from './app/+services/alert.service';
 export * from './app/+services/article.service';
