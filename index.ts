@@ -5,10 +5,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { OAuthService } from 'angular-oauth2-oidc';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { ModalModule } from 'ngx-bootstrap/modal';
-import { ToastModule } from 'ng2-toastr/ng2-toastr';
+import { ToastModule, ToastOptions } from 'ng2-toastr';
 import { HttpService } from '@freescan/http';
 
 // Environment
+import { ToastConfig } from './src/app/configuration';
 import { FREESCAN_ENV, Environment } from './src/app/+models';
 
 // Routing Module
@@ -89,6 +90,7 @@ export class FreeScanModule {
             ngModule:  FreeScanModule,
             providers: [
                 { provide: FREESCAN_ENV, useValue: environment },
+                { provide: ToastOptions, useClass: ToastConfig },
                 OAuthService,
                 HttpService,
                 {

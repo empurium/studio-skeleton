@@ -1,5 +1,6 @@
-import { Component, ViewEncapsulation, Input } from '@angular/core';
+import { Component, ViewContainerRef, ViewEncapsulation, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 
 import { AuthenticationService } from '../+services/authentication.service';
 import { RoleService } from '../+services/role.service';
@@ -9,24 +10,27 @@ export interface Navigation {
     label: string;
     icon: string;
     href?: string;
-    show?: boolean|Function;
+    show?: boolean | Function;
     click?: Function;
     classes?: string;
 }
 
 
 @Component({
-    selector:    'freescan-dashboard',
-    templateUrl: './full-layout.component.html',
-    styleUrls:   ['../../scss/style.scss'],
+    selector:      'freescan-dashboard',
+    templateUrl:   './full-layout.component.html',
+    styleUrls:     ['../../scss/style.scss'],
     encapsulation: ViewEncapsulation.None,
 })
 export class FullLayoutComponent {
     @Input() public navigation: Navigation[] = [];
 
     constructor(protected router: Router,
+                protected toastr: ToastsManager,
+                protected vcr: ViewContainerRef,
                 protected authentication: AuthenticationService,
                 protected roles: RoleService) {
+        this.toastr.setRootViewContainerRef(this.vcr);
     }
 
     /**
