@@ -59,7 +59,8 @@ export class ArticleService {
     public post(article: Article): Observable<ArticleResponse> {
         return this.http
             .hostname(this.environment.api.publications)
-            .post('articles', article);
+            .post('articles', article)
+            .finally(() => this.bust());
     }
 
     /**
@@ -68,15 +69,24 @@ export class ArticleService {
     public put(article: Article): Observable<ArticleResponse> {
         return this.http
             .hostname(this.environment.api.publications)
-            .put(`articles/${article.id}`, _.omit(article, ['id', 'is_published']));
+            .put(`articles/${article.id}`, _.omit(article, ['id', 'is_published']))
+            .finally(() => this.bust());
     }
 
     /**
      * Delete an article.
      */
-    public delete(id: string): Observable<ArticleResponse> {
+    public delete(article: Article): Observable<ArticleResponse> {
         return this.http
             .hostname(this.environment.api.publications)
-            .delete(`articles/${id}`);
+            .delete(`articles/${article.id}`)
+            .finally(() => this.bust());
+    }
+
+    /**
+     * Bust the client-side cache.
+     */
+    public bust(): void {
+        this.articles = null;
     }
 }
