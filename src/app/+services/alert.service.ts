@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { ToastsManager } from 'ng2-toastr';
 
+import { ErrorMessage } from '@freescan/http';
+
 
 @Injectable()
 export class AlertService {
@@ -21,5 +23,9 @@ export class AlertService {
 
     public error(title: string, message: string): void {
         this.toastr.error(message, title);
+    }
+
+    public errorMessage(error: ErrorMessage): void {
+        this.toastr.error(error.message, `${error.status} - ${error.statusText}`);
     }
 }
