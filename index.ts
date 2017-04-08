@@ -29,6 +29,9 @@ import { HomeComponent } from './src/app/home/home.component';
 import { LoadingComponent } from './src/app/loading/loading.component';
 import { UnavailableComponent } from './src/app/unavailable/unavailable.component';
 
+// Pipes
+import { FreeScanSanitizeHtmlPipe } from './src/app/+pipes/sanitize-html.pipe';
+
 // Export everything individually too for consumers
 export * from './src';
 
@@ -53,6 +56,10 @@ export const COMPONENTS: any = [
     UnavailableComponent,
 ];
 
+export const PIPES: any = [
+    FreeScanSanitizeHtmlPipe,
+];
+
 
 @NgModule({
     imports: [
@@ -69,6 +76,7 @@ export const COMPONENTS: any = [
     declarations: [
         ...DIRECTIVES,
         ...COMPONENTS,
+        ...PIPES,
     ],
 })
 export class FreeScanModule {
