@@ -30,8 +30,7 @@
     "angular2-jwt": "^0.2.0",
     "animate.css": "^3.5.2",
     "bootstrap": "4.0.0-alpha.6",
-    "ng2-bootstrap": "1.4.0",
-    "ng2-bootstrap-growl": "^0.0.5"
+    "ng2-bootstrap": "1.4.0"
   },
   "devDependencies": {
     "@angular/compiler": "^4.0.0",

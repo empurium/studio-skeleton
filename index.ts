@@ -4,7 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { OAuthService } from 'angular-oauth2-oidc';
 import { DropdownModule } from 'ng2-bootstrap/dropdown';
 import { ModalModule } from 'ng2-bootstrap/modal';
-import { BootstrapGrowlModule } from 'ng2-bootstrap-growl';
 import { HttpService } from '@freescan/http';
 
 // Environment
@@ -36,7 +35,6 @@ export * from './src';
 export const MODULES: any = [
     BrowserModule, // Do not use with Universal
     HttpModule,
-    BootstrapGrowlModule,
     DropdownModule.forRoot(),
     ModalModule.forRoot(),
     FreeScanRoutingModule,

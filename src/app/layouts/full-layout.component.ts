@@ -1,6 +1,5 @@
 import { Component, ViewEncapsulation, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { BootstrapGrowlService, BootstrapAlertType } from 'ng2-bootstrap-growl';
 
 import { AuthenticationService } from '../+services/authentication.service';
 import { RoleService } from '../+services/role.service';
@@ -26,7 +25,6 @@ export class FullLayoutComponent {
     @Input() public navigation: Navigation[] = [];
 
     constructor(protected router: Router,
-                protected growl: BootstrapGrowlService,
                 protected authentication: AuthenticationService,
                 protected roles: RoleService) {
     }
@@ -59,7 +57,6 @@ export class FullLayoutComponent {
      */
     public logout(): boolean {
         if (this.authentication.logout()) {
-            this.growl.addAlert('You are now logged out.', BootstrapAlertType.SUCCESS);
             this.router.navigate(['/']);
             return true;
         }
