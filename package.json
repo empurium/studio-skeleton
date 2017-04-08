@@ -1,6 +1,6 @@
 {
   "name": "@freescan/skeleton",
-  "version": "1.3.6",
+  "version": "1.3.7",
   "description": "FreeScan Skeleton",
   "main": "index.ts",
   "scripts": {
@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/FreeScanDotCom/freescan-skeleton#readme",
   "dependencies": {
+    "@angular/animations": "^4.0.1",
     "@angular/common": "^4.0.1",
     "@angular/core": "^4.0.1",
     "@angular/forms": "^4.0.1",

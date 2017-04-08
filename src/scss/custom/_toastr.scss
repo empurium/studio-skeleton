@@ -1,0 +1,28 @@
+.toast-top-right {
+  top: 20px;
+  right: 20px;
+}
+
+#toast-container > div {
+  border-radius: 0;
+  -webkit-border-radius: 0;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.35);
+  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.35);
+  &:hover {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.65);
+    -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.65);
+  }
+
+  .toast-success {
+    background-color: $brand-success;
+  }
+  .toast-info {
+    background-color: $brand-info;
+  }
+  .toast-warning {
+    background-color: $brand-warning;
+  }
+  .toast-danger {
+    background-color: $brand-danger;
+  }
+}
