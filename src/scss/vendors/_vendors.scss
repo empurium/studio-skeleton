@@ -2,7 +2,7 @@
 @import "spinkit/spinkit";
 @import "chart.js/chart";
 @import "ladda/ladda";
-@import "toastr/toastr";
+//@import "toastr/toastr";
 
 // AngularJS, AJAX & Static
 @import "datatables/datatables";
@@ -19,3 +19,5 @@
 
 // ReactJS
 @import "react-select/default";
+
+@import "~ng2-toastr/bundles/ng2-toastr.min";
