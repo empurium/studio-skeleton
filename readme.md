@@ -1,5 +1,7 @@
 # FreeScan Skeleton
 
+[![codebeat badge](https://codebeat.co/badges/d131f852-3d63-4359-93cd-131cfdf4e04b)](https://codebeat.co/a/michael/projects/github-com-freescandotcom-freescan-skeleton-master)
+
 Central repository that provides a `FreeScanModule` and `DashboardModule` with many features in each.
 
 The `FreeScanModule` can be imported with an `environment` configuration for access to
