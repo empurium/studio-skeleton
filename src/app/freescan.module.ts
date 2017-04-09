@@ -2,8 +2,9 @@ import { NgModule, ModuleWithProviders } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { CommonModule } from '@angular/common';
 import { OAuthService } from 'angular-oauth2-oidc';
-import { ModalModule, BsDropdownModule, DatepickerModule } from 'ngx-bootstrap';
+import { ModalModule, BsDropdownModule } from 'ngx-bootstrap';
 import { ToastModule, ToastOptions } from 'ng2-toastr';
+import { DateTimePickerModule } from 'ng-pick-datetime';
 import { HttpService } from '@freescan/http';
 
 // Environment
@@ -28,8 +29,8 @@ const MODULES: any = [
     HttpModule,
     ModalModule.forRoot(),
     BsDropdownModule.forRoot(),
-    DatepickerModule.forRoot(),
     ToastModule.forRoot(),
+    DateTimePickerModule,
 ];
 
 const COMPONENTS: any = [
@@ -49,7 +50,7 @@ const PIPES: any = [
     exports: [
         ModalModule,
         BsDropdownModule,
-        DatepickerModule,
+        DateTimePickerModule,
 
         ...COMPONENTS,
         ...PIPES,

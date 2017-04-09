@@ -1,6 +1,6 @@
 {
   "name": "@freescan/skeleton",
-  "version": "1.4.0",
+  "version": "1.4.5",
   "description": "FreeScan Skeleton",
   "main": "index.ts",
   "scripts": {
@@ -33,6 +33,7 @@
     "angular2-jwt": "^0.2.0",
     "animate.css": "^3.5.2",
     "bootstrap": "4.0.0-alpha.6",
+    "ng-pick-datetime": "^4.0.3",
     "ng2-toastr": "^4.0.1",
     "ngx-bootstrap": "^1.6.3",
     "zone.js": "^0.8.5"

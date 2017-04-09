@@ -8,8 +8,8 @@ export class Article {
     public content: string;
     public person_id: string = 'cbad5fb0-a7ac-4cd9-a68b-6f1c38e31613'; // TODO remove hardcode
     public image_url: string;
-    public published_at: Date;
-    public concealed_at: Date;
+    public published_at: string;
+    public concealed_at: string;
     public is_published: boolean;
 }
 
