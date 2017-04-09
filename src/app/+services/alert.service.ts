@@ -26,6 +26,6 @@ export class AlertService {
     }
 
     public errorMessage(error: ErrorMessage): void {
-        this.toastr.error(error.message, `${error.status} - ${error.statusText}`);
+        this.toastr.error(error.message, `${error.status} - ${error.statusText}`, { toastLife: 10000 });
     }
 }
