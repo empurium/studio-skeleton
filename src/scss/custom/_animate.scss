@@ -16,6 +16,11 @@
   animation-fill-mode: both;
 }
 
+.animated.quick {
+  -webkit-animation-duration: 300ms;
+  animation-duration: 300ms;
+}
+
 .animated.infinite {
   -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
