@@ -47,7 +47,7 @@ export class ArticleService {
     /**
      * Request a given article by slug URI. Does not cache on the client.
      */
-    public oneSlug(slugUri: string): Observable<ArticleResponse> {
+    public forSlug(slugUri: string): Observable<ArticleResponse> {
         return this.http
             .hostname(this.environment.api.publications)
             .query({ slug_uri: slugUri })
@@ -61,7 +61,7 @@ export class ArticleService {
         return this.http
             .hostname(this.environment.api.publications)
             .post('articles', article)
-            .finally(() => this.bust());
+            .finally(() => this.forget());
     }
 
     /**
@@ -71,7 +71,7 @@ export class ArticleService {
         return this.http
             .hostname(this.environment.api.publications)
             .put(`articles/${article.id}`, _.omit(article, this.omit))
-            .finally(() => this.bust());
+            .finally(() => this.forget());
     }
 
     /**
@@ -81,13 +81,13 @@ export class ArticleService {
         return this.http
             .hostname(this.environment.api.publications)
             .delete(`articles/${article.id}`)
-            .finally(() => this.bust());
+            .finally(() => this.forget());
     }
 
     /**
-     * Bust the client-side cache.
+     * Forget the client-side cache.
      */
-    public bust(): void {
+    public forget(): void {
         this.articles = null;
     }
 }
