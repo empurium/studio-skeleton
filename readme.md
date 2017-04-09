@@ -1,10 +1,14 @@
 # FreeScan Skeleton
 
-Central repository for all of our data models, Pipes, etc.
-Can be used by many other repositories that need this information.
+Central repository that provides a `FreeScanModule` and `DashboardModule` with many features in each.
 
-Also provides a `FullLayoutComponent` so that consumers can very easily
-get a dashboard up and running.
+The `FreeScanModule` can be imported with an `environment` configuration for access to
+services, components, directives, pipes, etc. It includes tools such as modals, date selectors,
+notifications, drop-downs, etc. It can be re-imported into any lazy-loaded module.
+
+The `DashboardModule` requires the `FreeScanModule` be loaded first. It provides a wrapper
+with dynamic navigation and SCSS scaffolding to get a new dashboard/website up and running
+quickly with the services above.
 
 
 ## Usage
@@ -47,18 +51,37 @@ Lastly, make a script tag which sets the theme to `bs4` for some Bootstrap 4 fun
 </script>
 ```
 
-##### Extend FullLayoutComponent
-In your `AppComponent`, extend the `FullLayoutComponent` from **@freescan/skeleton**,
+##### Set up your AppModule
+```
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DashboardModule, FreeScanSharedModule } from '@freescan/skeleton';
+
+@NgModule({
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        FreeScanSharedModule.forRoot(environment),
+        DashboardModule,
+    ],
+})
+```
+
+
+##### Extend DashboardComponent
+In your `AppComponent`, extend the `DashboardComponent` from **@freescan/skeleton**,
 and call the `<freescan-dashboard>` component within your `AppComponent` template.
 
-The `FullLayoutComponent` takes an input parameter called `navigation`, the structure of which is
+The `DashboardComponent` takes an input parameter called `navigation`, the structure of which is
 defined by an exported class called `Navigation`. You can provide click handlers, show/hide logic, etc.
 
 Make sure you implement `OnInit` in your AppComponent, and call the `this.attemptLogin()` method
-provided by the `FullLayoutComponent`, along with any other initialization functionality you require.
+provided by the `DashboardComponent`, along with any other initialization functionality you require.
 
-Extending the `FullLayoutComponent` gives you access to several common methods.
+Extending the `DashboardComponent` gives you access to several common methods.
 Be sure to check it out.
+
+
 
 ##### Routing
 Routing behaves as any typical Angular app.

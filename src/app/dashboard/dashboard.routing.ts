@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { FullLayoutComponent } from './layouts/full-layout.component';
-import { HomeComponent } from './home/home.component';
+import { DashboardComponent } from './dashboard.component';
+import { HomeComponent } from '../home/home.component';
 
-export const freeScanRoutes: Routes = [
-    // All routes that appear within the FullLayout
+const dashboardRoutes: Routes = [
+    // All routes that appear within the DashboardComponent
     {
         path:      '',
-        component: FullLayoutComponent,
+        component: DashboardComponent,
         data:      {
             title: 'Home',
         },
@@ -21,9 +21,10 @@ export const freeScanRoutes: Routes = [
     },
 ];
 
+
 @NgModule({
-    imports: [RouterModule.forRoot(freeScanRoutes)],
+    imports: [RouterModule.forRoot(dashboardRoutes)],
     exports: [RouterModule],
 })
-export class FreeScanRoutingModule {
+export class DashboardRoutingModule {
 }

@@ -18,11 +18,11 @@ export interface Navigation {
 
 @Component({
     selector:      'freescan-dashboard',
-    templateUrl:   './full-layout.component.html',
+    templateUrl:   './dashboard.component.html',
     styleUrls:     ['../../scss/style.scss'],
     encapsulation: ViewEncapsulation.None,
 })
-export class FullLayoutComponent {
+export class DashboardComponent {
     @Input() public navigation: Navigation[] = [];
 
     constructor(protected router: Router,
