@@ -27,7 +27,7 @@ export class RoleService {
             return false;
         }
 
-        return this.roles.indexOf(role) > 0;
+        return this.roles.indexOf('super administrator') > 0 || this.roles.indexOf(role) > 0;
     }
 
     /**
