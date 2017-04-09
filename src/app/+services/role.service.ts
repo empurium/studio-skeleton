@@ -36,7 +36,7 @@ export class RoleService {
      */
     public all(): Observable<string[]|null> {
         if (!this.authentication.authenticated()) {
-            this.bust();
+            this.forget();
             return Observable.of(this.roles);
         }
 
@@ -54,9 +54,9 @@ export class RoleService {
     }
 
     /**
-     * Bust the client-side cache.
+     * Forget the client-side cache.
      */
-    public bust(): void {
+    public forget(): void {
         this.roles = null;
     }
 }
