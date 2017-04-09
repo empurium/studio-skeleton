@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 
 import { AuthenticationService } from '../+services/authentication.service';
+import { AlertService } from '../+services/alert.service';
 import { RoleService } from '../+services/role.service';
 
 export interface Navigation {
@@ -29,6 +30,7 @@ export class DashboardComponent {
     constructor(protected router: Router,
                 protected toastr: ToastsManager,
                 protected vcr: ViewContainerRef,
+                protected alerts: AlertService,
                 protected authentication: AuthenticationService,
                 protected roles: RoleService) {
         this.toastr.setRootViewContainerRef(this.vcr);
@@ -63,6 +65,7 @@ export class DashboardComponent {
     public logout(): boolean {
         if (this.authentication.logout()) {
             this.router.navigate(['/']);
+            this.alerts.info('Logged out.', null);
             return true;
         }
 
