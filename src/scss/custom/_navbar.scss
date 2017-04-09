@@ -1,6 +1,8 @@
 header.navbar {
   border: 0;
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.45);
+  -webkit-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.45);
+  -moz-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.45);
 }
 
 .navbar {

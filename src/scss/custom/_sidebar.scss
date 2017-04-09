@@ -1,7 +1,9 @@
 .sidebar {
   z-index: 1000;
   padding-top: 20px;
-  box-shadow: -1px 0px 5px 0px rgba(0,0,0,0.45);
+  box-shadow: -1px 0 5px 0 rgba(0,0,0,0.45);
+  -webkit-box-shadow: -1px 0 5px 0 rgba(0,0,0,0.45);
+  -moz-box-shadow: -1px 0 5px 0 rgba(0,0,0,0.45);
 }
 
 .sidebar .sidebar-nav .nav {
