@@ -9,6 +9,7 @@ export interface Navigation {
     routerLink?: string;
     label: string;
     icon: string;
+    exactActive?: boolean;
     href?: string;
     show?: boolean | Function;
     click?: Function;

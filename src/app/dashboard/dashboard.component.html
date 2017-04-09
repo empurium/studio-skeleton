@@ -34,6 +34,7 @@
                         <a *ngIf="show(item)"
                            [routerLink]="item.routerLink"
                            routerLinkActive="active"
+                           [routerLinkActiveOptions]="{ exact: item.exactActive || false }"
                            class="nav-link {{ item.classes }}">
                             <i class="{{ item.icon }}"></i> {{ item.label }}
                         </a>
