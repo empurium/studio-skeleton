@@ -10,7 +10,7 @@ import { FREESCAN_ENV, Environment, Article, ArticleResponse, ArticlesResponse }
 export class ArticleService {
     protected limit: number = 15;
     protected articles: ArticlesResponse;
-    protected omit: string[] = ['id', 'is_published', 'momentValue'];
+    protected omit: string[] = ['id', 'is_published', 'momentPublished'];
 
     constructor(protected http: HttpService,
                 @Inject(FREESCAN_ENV) protected environment: Environment) {
