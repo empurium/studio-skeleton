@@ -21,9 +21,6 @@ import { ArticleService } from './+services/article.service';
 // Components
 import { LoadingComponent } from './loading/loading.component';
 
-// Pipes
-import { StudioSanitizeHtmlPipe } from './+pipes/sanitize-html.pipe';
-
 const MODULES: any = [
     CommonModule,
     HttpModule,
@@ -38,7 +35,6 @@ const COMPONENTS: any = [
 ];
 
 const PIPES: any = [
-    StudioSanitizeHtmlPipe,
 ];
 
 

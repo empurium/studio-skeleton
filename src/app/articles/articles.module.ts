@@ -1,5 +1,6 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { HttpModule } from '@angular/http';
+import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { OAuthService } from 'angular-oauth2-oidc';
 import { HttpService } from '@freescan/http';
@@ -20,6 +21,7 @@ import { StudioSanitizeHtmlPipe } from '../+pipes/sanitize-html.pipe';
 const MODULES: any = [
     CommonModule,
     HttpModule,
+    RouterModule,
 ];
 
 const COMPONENTS: any = [
