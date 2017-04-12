@@ -30,6 +30,13 @@
         <nav class="sidebar-nav">
             <ul class="nav">
                 <li class="nav-item" *ngFor="let item of navigation">
+                    <span class *ngIf="item.href && !item.routerLink">
+                        <a *ngIf="show(item)"
+                           [href]="item.href"
+                           class="nav-link {{ item.classes }}">
+                            <i class="{{ item.icon }}"></i> {{ item.label }}
+                        </a>
+                    </span>
                     <span class *ngIf="item.routerLink && !item.click">
                         <a *ngIf="show(item)"
                            [routerLink]="item.routerLink"
