@@ -1,0 +1,24 @@
+<div class="row" *ngFor="let article of articles">
+    <div class="col-sm-12 col-md-9">
+        <div class="card animated fadeIn">
+            <div class="card-block">
+                <div class="article-header">
+                    <h4 class="card-title">
+                        <a routerLink="{{ article.slug_uri }}">{{ article.title }}</a>
+                    </h4>
+                    <span class="article-published-date">
+                        Posted {{ published(article) }}
+                    </span>
+                </div>
+
+                <a routerLink="{{ article.id }}">
+                    <img src="{{ article.image_url }}" class="thumbnail mb-2" />
+                </a>
+
+                <p>{{ article.preview }}</p>
+
+                <p [innerHTML]="article.content | freescanSanitizeHtml"></p>
+            </div>
+        </div>
+    </div>
+</div>

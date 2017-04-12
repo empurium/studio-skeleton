@@ -1,5 +1,6 @@
-export * from './src/app/freescan.module';
+export * from './src/app/studio.module';
 export * from './src/app/dashboard';
+export * from './src/app/articles';
 export * from './src/app/home';
 export * from './src/app/loading';
 export * from './src/app/unavailable';
