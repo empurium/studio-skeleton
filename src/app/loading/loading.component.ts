@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 
 
 @Component({
-    selector:    'freescan-loading',
+    selector:    'studio-loading',
     templateUrl: './loading.component.html',
 })
 export class LoadingComponent {

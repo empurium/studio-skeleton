@@ -22,7 +22,7 @@ import { ArticleService } from './+services/article.service';
 import { LoadingComponent } from './loading/loading.component';
 
 // Pipes
-import { FreeScanSanitizeHtmlPipe } from './+pipes/sanitize-html.pipe';
+import { StudioSanitizeHtmlPipe } from './+pipes/sanitize-html.pipe';
 
 const MODULES: any = [
     CommonModule,
@@ -38,7 +38,7 @@ const COMPONENTS: any = [
 ];
 
 const PIPES: any = [
-    FreeScanSanitizeHtmlPipe,
+    StudioSanitizeHtmlPipe,
 ];
 
 
@@ -61,10 +61,10 @@ const PIPES: any = [
         ...PIPES,
     ],
 })
-export class FreeScanModule {
+export class StudioModule {
     public static forRoot(environment: Environment): ModuleWithProviders {
         return {
-            ngModule:  FreeScanModule,
+            ngModule:  StudioModule,
             providers: [
                 { provide: FREESCAN_ENV, useValue: environment },
                 { provide: ToastOptions, useClass: ToastConfig },

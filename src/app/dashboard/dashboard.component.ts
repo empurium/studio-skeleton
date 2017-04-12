@@ -19,7 +19,7 @@ export interface Navigation {
 
 
 @Component({
-    selector:      'freescan-dashboard',
+    selector:      'studio-dashboard',
     templateUrl:   './dashboard.component.html',
     styleUrls:     ['../../scss/style.scss'],
     encapsulation: ViewEncapsulation.None,

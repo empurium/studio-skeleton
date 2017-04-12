@@ -33,6 +33,7 @@
     "angular2-jwt": "^0.2.0",
     "animate.css": "^3.5.2",
     "bootstrap": "4.0.0-alpha.6",
+    "moment": "^2.18.1",
     "ng-pick-datetime": "^4.0.3",
     "ng2-toastr": "^4.0.1",
     "ngx-bootstrap": "^1.6.3",

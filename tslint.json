@@ -158,9 +158,9 @@
       "check-type"
     ],
 
-    "directive-selector": [true, "attribute", "freescan", "camelCase"],
-    "component-selector": [true, "element", "freescan", "kebab-case"],
-    "pipe-naming": [true, "camelCase", "freescan"],
+    "directive-selector": [true, "attribute", "studio", "camelCase"],
+    "component-selector": [true, "element", "studio", "kebab-case"],
+    "pipe-naming": [true, "camelCase", "studio"],
     "use-input-property-decorator": true,
     "use-output-property-decorator": true,
     "use-host-property-decorator": true,

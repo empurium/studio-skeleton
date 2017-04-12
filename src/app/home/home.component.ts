@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-    selector:    'freescan-home',
+    selector:    'studio-home',
     templateUrl: './home.component.html',
 })
 export class HomeComponent {

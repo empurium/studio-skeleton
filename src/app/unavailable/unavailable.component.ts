@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-    selector:    'freescan-unavailable',
+    selector:    'studio-unavailable',
     templateUrl: './unavailable.component.html',
 })
 export class UnavailableComponent {
