@@ -1,3 +1,13 @@
-import { InjectionToken } from '@angular/core';
+import { Injectable } from '@angular/core';
 
-export const WINDOW_TOKEN: InjectionToken<string> = new InjectionToken('WindowService');
+function getWindow(): any {
+    return window || {};
+}
+
+
+@Injectable()
+export class WindowService {
+    get nativeWindow(): any {
+        return getWindow();
+    }
+}
