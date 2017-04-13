@@ -5,7 +5,7 @@ import { CommonModule } from '@angular/common';
 import { OAuthService } from 'angular-oauth2-oidc';
 import { HttpService } from '@freescan/http';
 
-// Environment
+// Core
 import { FREESCAN_ENV } from '../+models';
 
 // Services
@@ -13,7 +13,8 @@ import { AuthenticationService } from '../+services/authentication.service';
 import { ArticleService } from '../+services/article.service';
 
 // Components
-import { ArticlesComponent } from './articles.component';
+import { ArticlesComponent } from './articles/articles.component';
+import { ArticleComponent } from './article/article.component';
 
 // Pipes
 import { StudioSanitizeHtmlPipe } from '../+pipes/sanitize-html.pipe';
@@ -26,6 +27,7 @@ const MODULES: any = [
 
 const COMPONENTS: any = [
     ArticlesComponent,
+    ArticleComponent,
 ];
 
 const PIPES: any = [

@@ -10,6 +10,7 @@ import { FREESCAN_ENV, Environment, Article, ArticleResponse, ArticlesResponse }
 export class ArticleService {
     protected limit: number = 15;
     protected articles: ArticlesResponse;
+    protected slugs: any = {};
     protected omit: string[] = ['id', 'is_published', 'momentPublished'];
 
     constructor(protected http: HttpService,
@@ -48,10 +49,18 @@ export class ArticleService {
      * Request a given article by slug URI. Does not cache on the client.
      */
     public forSlug(slugUri: string): Observable<ArticleResponse> {
+        if (this.slugs[slugUri]) {
+            return Observable.of(this.slugs[slugUri]);
+        }
+
         return this.http
             .hostname(this.environment.api.publications)
             .query({ slug_uri: slugUri })
-            .get('articles');
+            .get('articles')
+            .map((response: ArticleResponse): ArticleResponse => {
+                this.slugs[slugUri] = response.data;
+                return response;
+            });
     }
 
     /**

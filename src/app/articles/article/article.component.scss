@@ -1,0 +1,24 @@
+.thumbnail {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.article-header {
+  margin-bottom: 20px;
+  h2 {
+    margin-bottom: 5px;
+  }
+  a {
+    transition: all 150ms;
+    color: #000;
+  }
+  .article-published-date {
+    color: #545454;
+  }
+}
+
+.article-link {
+  font-size: 1.2em;
+  transition: all 150ms;
+  color: #000;
+}

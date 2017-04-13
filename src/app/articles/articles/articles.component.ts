@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import * as moment from 'moment';
 
-import { ArticlesResponse, Article } from '../+models';
-import { ArticleService } from '../+services/article.service';
+import { ArticlesResponse, Article } from '../../+models';
+import { ArticleService } from '../../+services/article.service';
 
 
 @Component({
