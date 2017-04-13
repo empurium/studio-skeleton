@@ -37,6 +37,15 @@ export class VinylService {
         let redirectURI: string = `http://${hostname}`;
 
         switch (hostname) {
+        // Publication Studio
+        case 'publication.studio.local':
+            clientId    = '4';
+            redirectURI = `${redirectURI}:5001`;
+            break;
+        case 'staging.publication.studio':
+            clientId    = '4';
+            break;
+
         // 720 Global
         case '720global.local':
             clientId    = '6';
