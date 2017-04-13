@@ -1,6 +1,6 @@
-import { OpaqueToken } from '@angular/core';
+import { InjectionToken } from '@angular/core';
 
-export const FREESCAN_ENV: OpaqueToken = new OpaqueToken('freescan.environment.configuration');
+export const FREESCAN_ENV: InjectionToken<string> = new InjectionToken('freescan.environment.configuration');
 
 export class Environment {
     public production: boolean;
