@@ -2,13 +2,14 @@
 
 [![codebeat badge](https://codebeat.co/badges/d131f852-3d63-4359-93cd-131cfdf4e04b)](https://codebeat.co/a/michael/projects/github-com-freescandotcom-freescan-skeleton-master)
 
-Central repository that provides a `FreeScanModule` and `DashboardModule` with many features in each.
+Central repository that provides a `StudioModule` and `DashboardModule` with many features in each.
 
-The `FreeScanModule` can be imported with an `environment` configuration for access to
-services, components, directives, pipes, etc. It includes tools such as modals, date selectors,
+The `StudioModule` can be imported with an `environment` configuration
+(accessed from `FREESCAN_ENV` token) for access to services, components,
+directives, pipes, etc. It includes tools such as modals, date selectors,
 notifications, drop-downs, etc. It can be re-imported into any lazy-loaded module.
 
-The `DashboardModule` requires the `FreeScanModule` be loaded first. It provides a wrapper
+The `DashboardModule` requires the `StudioModule` be loaded first. It provides a wrapper
 with dynamic navigation and SCSS scaffolding to get a new dashboard/website up and running
 quickly with the services above.
 
@@ -55,16 +56,20 @@ Lastly, make a script tag which sets the theme to `bs4` for some Bootstrap 4 fun
 
 ##### Set up your AppModule
 ```
+import { environment } from '@env/environment';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { DashboardModule, FreeScanSharedModule } from '@freescan/skeleton';
+import { DashboardModule, StudioModule } from '@freescan/skeleton';
 
 @NgModule({
     imports: [
         BrowserModule,
         BrowserAnimationsModule,
-        FreeScanSharedModule.forRoot(environment),
+        StudioModule.forRoot(),
         DashboardModule,
+    ],
+    providers: [
+        { provide: FREESCAN_ENV, useValue: environment },
     ],
 })
 ```
