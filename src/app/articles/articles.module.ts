@@ -6,7 +6,7 @@ import { OAuthService } from 'angular-oauth2-oidc';
 import { HttpService } from '@freescan/http';
 
 // Environment
-import { FREESCAN_ENV, Environment } from '../+models';
+import { FREESCAN_ENV } from '../+models';
 
 // Services
 import { AuthenticationService } from '../+services/authentication.service';
@@ -49,11 +49,10 @@ const PIPES: any = [
     ],
 })
 export class ArticlesModule {
-    public static forRoot(environment: Environment): ModuleWithProviders {
+    public static forRoot(): ModuleWithProviders {
         return {
             ngModule:  ArticlesModule,
             providers: [
-                { provide: FREESCAN_ENV, useValue: environment },
                 OAuthService,
                 HttpService,
                 {

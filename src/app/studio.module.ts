@@ -9,7 +9,7 @@ import { HttpService } from '@freescan/http';
 
 // Environment
 import { ToastConfig } from './configuration';
-import { FREESCAN_ENV, Environment } from './+models';
+import { FREESCAN_ENV } from './+models';
 
 // Services
 import { AuthenticationService } from './+services/authentication.service';
@@ -58,11 +58,10 @@ const PIPES: any = [
     ],
 })
 export class StudioModule {
-    public static forRoot(environment: Environment): ModuleWithProviders {
+    public static forRoot(): ModuleWithProviders {
         return {
             ngModule:  StudioModule,
             providers: [
-                { provide: FREESCAN_ENV, useValue: environment },
                 { provide: ToastOptions, useClass: ToastConfig },
                 OAuthService,
                 HttpService,
