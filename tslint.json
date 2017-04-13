@@ -103,7 +103,7 @@
       true,
       "always"
     ],
-    "switch-default": true,
+    "switch-default": false,
     "ter-indent": [true, 4],
     "trailing-comma": [
       true,
