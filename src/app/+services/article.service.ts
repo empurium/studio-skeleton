@@ -10,7 +10,7 @@ import { FREESCAN_ENV, Environment, Article, ArticleResponse, ArticlesResponse }
 export class ArticleService {
     protected limit: number = 15;
     protected articles: ArticlesResponse;
-    protected slugs: any = {};
+    protected slugs: { [key: string]: ArticleResponse } = {};
     protected omit: string[] = ['id', 'is_published', 'momentPublished'];
 
     constructor(protected http: HttpService,
@@ -58,7 +58,7 @@ export class ArticleService {
             .query({ slug_uri: slugUri })
             .get('articles')
             .map((response: ArticleResponse): ArticleResponse => {
-                this.slugs[slugUri] = response.data;
+                this.slugs[slugUri] = response;
                 return response;
             });
     }
