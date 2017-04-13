@@ -17,6 +17,10 @@
                 <p>{{ article.preview }}</p>
 
                 <p [innerHTML]="article.content | studioSanitizeHtml"></p>
+
+                <div class="text-center">
+                    <a [routerLink]="article.slug_uri" class="btn btn-secondary btn-pointer">Read More</a>
+                </div>
             </div>
         </div>
     </div>

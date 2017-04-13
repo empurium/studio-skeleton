@@ -3,8 +3,17 @@ import { ActivatedRoute, Params } from '@angular/router';
 import * as moment from 'moment';
 import { Observable } from 'rxjs';
 
-import { ArticleResponse, ArticlesResponse, Article } from '../../+models';
+import { WindowService } from '../../+services/window.service';
 import { ArticleService } from '../../+services/article.service';
+import { ArticleResponse, ArticlesResponse, Article } from '../../+models';
+
+// AddToAny adds some globals
+declare global {
+    interface Window {
+        a2a: any;
+        a2a_config: any;
+    }
+}
 
 
 @Component({
@@ -16,9 +25,12 @@ export class ArticleComponent implements OnInit {
     public article: Article;
     public recent: Article[];
     public loading: boolean = true;
+    private window: Window;
 
     constructor(private route: ActivatedRoute,
-                private articleService: ArticleService) {
+                private articleService: ArticleService,
+                private windowService: WindowService) {
+        this.window = this.windowService.nativeWindow;
     }
 
     public ngOnInit(): void {
@@ -37,7 +49,9 @@ export class ArticleComponent implements OnInit {
             })
             .subscribe((response: ArticleResponse) => {
                 this.loading = false;
+                this.window.scrollTo(0, 0);
                 this.article = response.data;
+                this.loadShareButtons();
             });
     }
 
@@ -50,6 +64,19 @@ export class ArticleComponent implements OnInit {
                 this.loading = false;
                 this.recent = response.data;
             });
+    }
+
+    /**
+     * Load the Share buttons. Delay for innerHTML to inject itself.
+     * Unfortunately innerHTML has no event to tell us when the content is loaded.
+     * TODO - make this a ShareService and ShareComponent
+     */
+    public loadShareButtons(): void {
+        setTimeout(() => {
+            this.window.a2a_config = this.window.a2a_config || {};
+            this.window.a2a_config.linkname = this.article.title;
+            this.window.a2a.init('page');
+        }, 1500);
     }
 
     /**

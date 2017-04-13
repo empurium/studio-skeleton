@@ -1,6 +1,6 @@
 <div class="row" *ngIf="article">
-    <div class="col-sm-8">
-        <div class="card animated fadeIn">
+    <div class="col-sm-12 col-md-9 col-xlg-8">
+        <div class="card animated fadeIn" *ngIf="!loading">
             <div class="card-block">
                 <div class="article-header">
                     <h2>{{ article.title }}</h2>
@@ -14,6 +14,13 @@
                     <img src="{{ article.image_url }}" class="thumbnail mb-2"/>
                 </a>
 
+                <!-- Share buttons -->
+                <div class="a2a_kit a2a_kit_size_32 a2a_default_style mb-2">
+                    <a class="a2a_button_facebook"></a>
+                    <a class="a2a_button_twitter"></a>
+                    <a class="a2a_button_linkedin"></a>
+                </div>
+
                 <p>{{ article.preview }}</p>
 
                 <p [innerHTML]="article.content | studioSanitizeHtml"></p>
@@ -21,7 +28,7 @@
         </div>
     </div>
 
-    <div class="col-sm-12 col-md-4">
+    <div class="col-sm-12 col-md-3 col-xlg-4">
         <h3 *ngIf="recent" class="article-section-label mb-1">The Latest</h3>
 
         <div class="animated fadeIn mb-2" *ngFor="let article of recent">
