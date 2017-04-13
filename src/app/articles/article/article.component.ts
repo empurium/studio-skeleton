@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import * as moment from 'moment';
+import { Observable } from 'rxjs';
 
 import { ArticleResponse, ArticlesResponse, Article } from '../../+models';
 import { ArticleService } from '../../+services/article.service';
@@ -32,9 +33,7 @@ export class ArticleComponent implements OnInit {
         this.route.params
             .switchMap((params: Params) => {
                 this.loading = !!params.slug;
-                // TODO - use slug...
-                // return params.slug ? this.articleService.forSlug(params.slug) : Observable.empty();
-                return this.articleService.one(params.slug);
+                return params.slug ? this.articleService.forSlug(params.slug) : Observable.empty();
             })
             .subscribe((response: ArticleResponse) => {
                 this.loading = false;
