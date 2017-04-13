@@ -10,6 +10,7 @@ export * from './src/app/+pipes';
 export * from './src/app/+directives';
 
 // Do not use barrels for services...
+export * from './src/app/+services/window.service';
 export * from './src/app/+services/vinyl.service';
 export * from './src/app/+services/authentication.service';
 export * from './src/app/+services/role.service';

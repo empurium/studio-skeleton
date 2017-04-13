@@ -9,6 +9,7 @@ import { HttpService } from '@freescan/http';
 import { FREESCAN_ENV } from '../+models';
 
 // Services
+import { WINDOW_TOKEN } from '../+services/window.service';
 import { AuthenticationService } from '../+services/authentication.service';
 import { ArticleService } from '../+services/article.service';
 
@@ -55,6 +56,7 @@ export class ArticlesModule {
         return {
             ngModule:  ArticlesModule,
             providers: [
+                { provide: WINDOW_TOKEN, useValue: window },
                 OAuthService,
                 HttpService,
                 {
