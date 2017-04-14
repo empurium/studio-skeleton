@@ -7,11 +7,16 @@ import { ArticleComponent } from './article/article.component';
 export const articlesRoutes: Routes = [
     {
         path:      'publications',
-        component: ArticlesComponent,
-    },
-    {
-        path:      'publications/:slug',
-        component: ArticleComponent,
+        children: [
+            {
+                path:      '',
+                component: ArticlesComponent,
+            },
+            {
+                path:      ':slug',
+                component: ArticleComponent,
+            },
+        ],
     },
 ];
 
