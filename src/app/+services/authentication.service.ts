@@ -32,7 +32,7 @@ export class AuthenticationService {
      */
     public userId(): string|null {
         let jwt: any = this.decodeToken();
-        return jwt.sub;
+        return jwt && jwt.sub ? jwt.sub : null;
     }
 
     /**
