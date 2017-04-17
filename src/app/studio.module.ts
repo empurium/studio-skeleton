@@ -79,7 +79,7 @@ export class StudioModule {
                 {
                     provide:  TierService,
                     useClass: TierService,
-                    deps:     [HttpService, FREESCAN_ENV],
+                    deps:     [HttpService, AuthenticationService, FREESCAN_ENV],
                 },
                 {
                     provide:  ArticleService,
