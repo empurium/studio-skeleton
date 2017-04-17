@@ -52,8 +52,10 @@ export class VinylService {
             redirectURI = `${redirectURI}:5002`;
             break;
         case 'studio.720global.local':
-            clientId    = '6';
-            redirectURI = `${redirectURI}:5001`;
+            // clientId    = '6';
+            // redirectURI = `${redirectURI}:5001`;
+            clientId    = '4';
+            redirectURI = `http://publication.studio.local:5001`;
             break;
         case 'staging-720global.freescan.com':
             clientId = '6';
@@ -68,8 +70,10 @@ export class VinylService {
             redirectURI = `${redirectURI}:5002`;
             break;
         case 'studio.360global.local':
-            clientId    = '8';
-            redirectURI = `${redirectURI}:5001`;
+            // clientId    = '8';
+            // redirectURI = `${redirectURI}:5001`;
+            clientId    = '4';
+            redirectURI = `http://publication.studio.local:5001`;
             break;
         case 'staging.360global.space':
             clientId = '8';
