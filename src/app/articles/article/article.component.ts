@@ -4,8 +4,9 @@ import * as moment from 'moment';
 import { Observable } from 'rxjs';
 
 import { WindowService } from '../../+services/window.service';
+import { TierService } from '../../+services/tier.service';
 import { ArticleService } from '../../+services/article.service';
-import { ArticleResponse, ArticlesResponse, Article } from '../../+models';
+import { Tier, ArticleResponse, ArticlesResponse, Article } from '../../+models';
 
 // AddToAny adds some globals
 declare global {
@@ -24,18 +25,34 @@ declare global {
 export class ArticleComponent implements OnInit {
     public article: Article;
     public recent: Article[];
+    public tiers: Tier[];
     public loading: boolean = true;
     private window: Window;
 
     constructor(private route: ActivatedRoute,
+                private tierService: TierService,
                 private articleService: ArticleService,
                 private windowService: WindowService) {
         this.window = this.windowService.nativeWindow;
     }
 
     public ngOnInit(): void {
+        this.loadTiers();
         this.load();
         this.loadRecent();
+    }
+
+    /**
+     * Request the tiers for this user so we can decide if we are showing
+     * them the full content or a paywall.
+     */
+    public loadTiers(): void {
+        this.tierService.user().subscribe(
+            (tiers: Tier[]): Tier[] => this.tiers = tiers,
+            (error: any): void => {
+                // User may not have any tiers
+            },
+        );
     }
 
     /**
@@ -72,11 +89,14 @@ export class ArticleComponent implements OnInit {
      * TODO - make this a ShareService and ShareComponent
      */
     public loadShareButtons(): void {
-        setTimeout(() => {
-            this.window.a2a_config = this.window.a2a_config || {};
-            this.window.a2a_config.linkname = this.article.title;
-            this.window.a2a.init('page');
-        }, 1500);
+        setTimeout(
+            () => {
+                this.window.a2a_config = this.window.a2a_config || {};
+                this.window.a2a_config.linkname = this.article.title;
+                this.window.a2a.init('page');
+            },
+            1500,
+        );
     }
 
     /**

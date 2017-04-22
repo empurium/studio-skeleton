@@ -11,6 +11,7 @@ import { FREESCAN_ENV } from '../+models';
 // Services
 import { WindowService } from '../+services/window.service';
 import { AuthenticationService } from '../+services/authentication.service';
+import { TierService } from '../+services/tier.service';
 import { ArticleService } from '../+services/article.service';
 
 // Components
@@ -63,6 +64,11 @@ export class ArticlesModule {
                     provide:  AuthenticationService,
                     useClass: AuthenticationService,
                     deps:     [OAuthService, FREESCAN_ENV],
+                },
+                {
+                    provide:  TierService,
+                    useClass: TierService,
+                    deps:     [HttpService, AuthenticationService, FREESCAN_ENV],
                 },
                 {
                     provide:  ArticleService,
