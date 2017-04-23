@@ -25,6 +25,8 @@ export class VinylService {
     /**
      * Return the Client ID and Redirect URI for Passport to log into
      * the correct client and location.
+     *
+     * Used by the Publication Studio dashboard environment configuration.
      */
     public passport(): PassportData {
         let hostname: string    = window.location.hostname;
@@ -42,32 +44,18 @@ export class VinylService {
             break;
 
         // 720 Global
-        case '720global.local':
-            clientId    = '6';
-            redirectURI = `${redirectURI}:5002`;
-            break;
         case 'studio.720global.local':
             clientId    = '8';
             redirectURI = `${redirectURI}:5001`;
-            break;
-        case 'staging.720global.com':
-            clientId = '6';
             break;
         case 'staging-studio.720global.com':
             clientId = '8';
             break;
 
         // 360 Global
-        case '360global.local':
-            clientId    = '10';
-            redirectURI = `${redirectURI}:5002`;
-            break;
         case 'studio.360global.local':
             clientId    = '12';
             redirectURI = `${redirectURI}:5001`;
-            break;
-        case 'staging.360global.space':
-            clientId = '10';
             break;
         case 'staging-studio.360global.space':
             clientId = '12';
