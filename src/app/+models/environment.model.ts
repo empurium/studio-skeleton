@@ -5,6 +5,7 @@ export const FREESCAN_ENV: InjectionToken<Environment> = new InjectionToken('fre
 export class Environment {
     public production: boolean;
     public staging: boolean;
+    public studioUrl?: string;
 
     public api: {
         passport: string;
