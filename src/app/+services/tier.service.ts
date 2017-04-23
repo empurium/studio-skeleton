@@ -51,7 +51,7 @@ export class TierService {
     }
 
     /**
-     * Clear the client-side cache for user tiers.
+     * Clear the client-side cache.
      */
     public forget(): void {
         this.userTiers = [];

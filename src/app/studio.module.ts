@@ -15,6 +15,7 @@ import { FREESCAN_ENV } from './+models';
 import { AuthenticationService } from './+services/authentication.service';
 import { RoleService } from './+services/role.service';
 import { TierService } from './+services/tier.service';
+import { TierResourceService } from './+services/tier-resource.service';
 import { AlertService } from './+services/alert.service';
 import { ArticleService } from './+services/article.service';
 
@@ -80,6 +81,11 @@ export class StudioModule {
                     provide:  TierService,
                     useClass: TierService,
                     deps:     [HttpService, AuthenticationService, FREESCAN_ENV],
+                },
+                {
+                    provide:  TierResourceService,
+                    useClass: TierResourceService,
+                    deps:     [HttpService, FREESCAN_ENV],
                 },
                 {
                     provide:  ArticleService,
