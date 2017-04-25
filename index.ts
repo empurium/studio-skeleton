@@ -16,5 +16,6 @@ export * from './src/app/+services/authentication.service';
 export * from './src/app/+services/role.service';
 export * from './src/app/+services/tier.service';
 export * from './src/app/+services/tier-resource.service';
+export * from './src/app/+services/people.service';
 export * from './src/app/+services/alert.service';
 export * from './src/app/+services/article.service';
