@@ -1,4 +1,5 @@
 import { Response } from './response.model';
+import { Person } from './people.model';
 
 export class Article {
     public id: string;
@@ -6,7 +7,8 @@ export class Article {
     public slug_uri: string;
     public preview: string;
     public content: string;
-    public person_id: string = 'cbad5fb0-a7ac-4cd9-a68b-6f1c38e31613'; // TODO remove hardcode
+    public person: { data: Person; };
+    public person_id: string;
     public image_url: string;
     public published_at: string;
     public concealed_at: string;
