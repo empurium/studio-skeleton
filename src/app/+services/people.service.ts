@@ -2,7 +2,7 @@ import { Injectable, Inject } from '@angular/core';
 import { HttpService } from '@freescan/http';
 import { Observable } from 'rxjs/Observable';
 
-import { FREESCAN_ENV, Environment, Person, PeopleResponse } from '../+models';
+import { FREESCAN_ENV, Environment, Person, PersonResponse, PeopleResponse } from '../+models';
 
 
 @Injectable()
@@ -36,7 +36,7 @@ export class PeopleService {
     /**
      * Request a given person. Does not cache on the client.
      */
-    public one(id: string): Observable<PeopleResponse> {
+    public one(id: string): Observable<PersonResponse> {
         return this.http
             .hostname(this.environment.api.vinyl)
             .get(`people/${id}`);
@@ -45,7 +45,7 @@ export class PeopleService {
     /**
      * Create a person.
      */
-    public post(person: Person): Observable<PeopleResponse> {
+    public post(person: Person): Observable<PersonResponse> {
         return this.http
             .hostname(this.environment.api.vinyl)
             .post('people', person)

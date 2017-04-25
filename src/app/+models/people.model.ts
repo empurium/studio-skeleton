@@ -14,6 +14,10 @@ export class Person {
     public biography: string;
 }
 
+export class PersonResponse extends Response {
+    public data: Person;
+}
+
 export class PeopleResponse extends Response {
     public data: Person[];
 }
