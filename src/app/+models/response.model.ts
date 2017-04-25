@@ -12,6 +12,7 @@ export class Meta {
 export class Response {
     public status: string;
     public message: string;
+    public errors?: any;
     public meta: Meta;
 
     // Consumers must implement their own 'data' key accordingly
