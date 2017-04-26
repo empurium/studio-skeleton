@@ -24,6 +24,8 @@
                 <p>{{ article.preview }}</p>
 
                 <p [innerHTML]="article.content | studioSanitizeHtml"></p>
+
+                <a routerLink="./" [queryParams]="{ module: 'billing', step: 'plans' }" class="btn btn-primary btn-pointer">Billing Modal</a>
             </div>
         </div>
     </div>
