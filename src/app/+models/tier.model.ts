@@ -19,6 +19,7 @@ export class TierAuthorization {
 export class TierResource {
     public id: string;
     public reference_id: string;
+    public tier_id?: string;
     public tier: {
         data: Tier;
     };

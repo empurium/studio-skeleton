@@ -13,8 +13,6 @@ import { FREESCAN_ENV,
 
 @Injectable()
 export class TierResourceService {
-    protected tierResources: TierResource[];
-
     constructor(protected http: HttpService,
                 @Inject(FREESCAN_ENV) protected environment: Environment) {
     }
@@ -23,18 +21,11 @@ export class TierResourceService {
      * Return the Tier Resources for the comma-separated reference identifiers.
      */
     public for(ids: string): Observable<TierResource[]> {
-        if (this.tierResources) {
-            return Observable.of(this.tierResources);
-        }
-
         return this.http
             .hostname(this.environment.api.vinyl)
             .query({ reference_ids: ids })
             .get('tier-resources')
-            .map((response: TierResourcesResponse) => {
-                this.tierResources = response.data ? response.data : [];
-                return this.tierResources;
-            });
+            .map((response: TierResourcesResponse) => response.data);
     }
 
     /**
@@ -44,20 +35,16 @@ export class TierResourceService {
         return this.http
             .hostname(this.environment.api.vinyl)
             .post(`tiers/${tier.id}/resources`, { reference_id: referenceId })
-            .map((response: TierResourceResponse) => {
-                return response.data;
-            })
-            .finally(() => this.forget());
+            .map((response: TierResourceResponse) => response.data);
     }
 
     /**
-     * Update a Tier Resource to change the Tier ID.
+     * Update a Tier Resource, typically to change the Tier ID.
      */
-    public patch(tierResource: TierResource, tier: Tier): Observable<TierResourceResponse> {
+    public put(tierResource: TierResource): Observable<TierResourceResponse> {
         return this.http
             .hostname(this.environment.api.vinyl)
-            .patch(`tier-resources/${tierResource.id}`, { tier_id: tier.id })
-            .finally(() => this.forget());
+            .put(`tier-resources/${tierResource.id}`, tierResource);
     }
 
     /**
@@ -66,14 +53,6 @@ export class TierResourceService {
     public delete(tierResource: TierResource): Observable<TierResourceResponse> {
         return this.http
             .hostname(this.environment.api.vinyl)
-            .delete(`tier-resources/${tierResource.id}`)
-            .finally(() => this.forget());
-    }
-
-    /**
-     * Clear the client-side cache.
-     */
-    public forget(): void {
-        this.tierResources = [];
+            .delete(`tier-resources/${tierResource.id}`);
     }
 }
