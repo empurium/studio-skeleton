@@ -26,6 +26,7 @@ export interface Navigation {
 })
 export class DashboardComponent {
     @Input() public navigation: Navigation[] = [];
+    @Input() public studioUrl: string = '';
 
     constructor(protected router: Router,
                 protected toastr: ToastsManager,

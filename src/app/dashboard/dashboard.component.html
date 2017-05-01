@@ -7,8 +7,8 @@
         </li>
     </ul>
 
-    <ul class="nav navbar-nav ml-auto mr-1" *ngIf="authenticated()">
-        <li class="nav-item dropdown" dropdown>
+    <ul class="nav navbar-nav ml-auto mr-1">
+        <li class="nav-item dropdown" dropdown *ngIf="authenticated()">
             <a class="nav-link nav-pill avatar" data-toggle="dropdown" role="button" aria-haspopup="true"
                aria-expanded="false" dropdownToggle>
                 <span class="icon-user"></span>
@@ -18,9 +18,25 @@
                 <div class="dropdown-header text-center">
                     <strong>Account</strong>
                 </div>
-                <a class="dropdown-item" routerLink="/settings"><i class="fa fa-wrench"></i> Settings</a>
-                <a class="dropdown-item" (click)="logout()" href="#"><i class="fa fa-lock"></i> Logout</a>
+
+                <a class="dropdown-item" *ngIf="roles.has('dashboard')" [href]="studioUrl">
+                    <i class="fa fa-book"></i> Publication Studio
+                </a>
+
+                <a class="dropdown-item" routerLink="/settings">
+                    <i class="fa fa-wrench"></i> Settings
+                </a>
+
+                <a class="dropdown-item" (click)="logout()" href="#">
+                    <i class="fa fa-lock"></i> Logout
+                </a>
             </div>
+        </li>
+
+        <li class="nav-item hidden-md-down" *ngIf="!authenticated()">
+            <a class="nav-link" href="#" (click)="login()">
+                <i class="icon-user"></i> Login
+            </a>
         </li>
     </ul>
 </header>
