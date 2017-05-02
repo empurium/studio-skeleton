@@ -1,26 +1,24 @@
-<div class="row">
-    <div class="col-sm-12 col-lg-8" *ngFor="let article of articles">
-        <div class="card animated fadeIn">
-            <div class="card-block">
-                <div class="article-header">
-                    <h2><a routerLink="{{ article.slug_uri }}">{{ article.title }}</a></h2>
+<div *ngFor="let article of articles">
+    <div class="card animated fadeIn">
+        <div class="card-block">
+            <div class="article-header">
+                <h2><a [routerLink]="url(article.slug_uri)">{{ article.title }}</a></h2>
 
-                    <span class="article-published-date">
-                        Posted {{ published(article) }}
-                    </span>
-                </div>
+                <span class="article-published-date">
+                    Posted {{ published(article) }}
+                </span>
+            </div>
 
-                <a routerLink="{{ article.slug_uri }}">
-                    <img src="{{ article.image_url }}" class="thumbnail mb-2" />
-                </a>
+            <a [routerLink]="url(article.slug_uri)">
+                <img src="{{ article.image_url }}" class="thumbnail mb-2" />
+            </a>
 
-                <p>{{ article.preview }}</p>
+            <p>{{ article.preview }}</p>
 
-                <p [innerHTML]="article.content | studioSanitizeHtml"></p>
+            <p [innerHTML]="article.content | studioSanitizeHtml"></p>
 
-                <div class="text-center">
-                    <a [routerLink]="article.slug_uri" class="btn btn-secondary btn-pointer">Read More</a>
-                </div>
+            <div class="text-center">
+                <a [routerLink]="url(article.slug_uri)" class="btn btn-secondary btn-pointer">Read More</a>
             </div>
         </div>
     </div>

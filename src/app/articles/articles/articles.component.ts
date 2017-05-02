@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import * as moment from 'moment';
 
 import { ArticlesResponse, Article } from '../../+models';
@@ -11,13 +11,15 @@ import { ArticleService } from '../../+services/article.service';
     styleUrls:   ['./articles.component.scss'],
 })
 export class ArticlesComponent implements OnInit {
+    @Input() public routePrefix: string = '';
+    @Input() public limit: number = 15;
     public articles: Article[];
 
     constructor(private articleService: ArticleService) {
     }
 
     public ngOnInit(): void {
-        this.articleService.all()
+        this.articleService.all(1, this.limit)
             .subscribe(
                 (response: ArticlesResponse) => {
                     this.articles = response.data;
@@ -31,5 +33,12 @@ export class ArticlesComponent implements OnInit {
      */
     public published(article: Article): string {
         return moment.utc(article.published_at).fromNow();
+    }
+
+    /**
+     * Generate the URL of the article based on the given routePrefix / article slug.
+     */
+    public url(slug: string): string {
+        return this.routePrefix ? `${this.routePrefix}/${slug}` : slug;
     }
 }
