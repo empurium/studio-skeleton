@@ -1,5 +1,6 @@
-<div *ngFor="let article of articles">
-    <div class="card animated fadeIn">
+<div *ngFor="let article of articles" class="animated fadeIn">
+    <!-- Vertical display -->
+    <div *ngIf="needsFormat('vertical')" class="card">
         <div class="card-block">
             <div class="article-header">
                 <h2><a [routerLink]="url(article.slug_uri)">{{ article.title }}</a></h2>
@@ -15,10 +16,37 @@
 
             <p>{{ article.preview }}</p>
 
-            <p [innerHTML]="article.content | studioSanitizeHtml"></p>
+            <div *ngIf="full">
+                <p [innerHTML]="article.content | studioSanitizeHtml"></p>
+            </div>
+        </div>
+    </div>
 
-            <div class="text-center">
-                <a [routerLink]="url(article.slug_uri)" class="btn btn-secondary btn-pointer">Read More</a>
+    <!-- Horizontal display -->
+    <div *ngIf="needsFormat('horizontal')" class="card">
+        <div class="card-block">
+            <div class="row">
+                <div class="col-sm-3 col-md-4">
+                    <a [routerLink]="url(article.slug_uri)">
+                        <img src="{{ article.image_url }}" class="thumbnail mb-2" />
+                    </a>
+                </div>
+
+                <div class="col-sm-9 col-md-8">
+                    <div class="article-header">
+                        <h2><a [routerLink]="url(article.slug_uri)">{{ article.title }}</a></h2>
+
+                        <span class="article-published-date">
+                            Posted {{ published(article) }}
+                        </span>
+                    </div>
+
+                    <p>{{ article.preview }}</p>
+
+                    <div *ngIf="full">
+                        <p [innerHTML]="article.content | studioSanitizeHtml"></p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

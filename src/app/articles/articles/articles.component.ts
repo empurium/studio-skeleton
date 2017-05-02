@@ -12,7 +12,9 @@ import { ArticleService } from '../../+services/article.service';
 })
 export class ArticlesComponent implements OnInit {
     @Input() public routePrefix: string = '';
-    @Input() public limit: number = 15;
+    @Input() public limit: number       = 15;
+    @Input() public format: string      = 'vertical';
+    @Input() public full: boolean       = true;
     public articles: Article[];
 
     constructor(private articleService: ArticleService) {
@@ -40,5 +42,12 @@ export class ArticlesComponent implements OnInit {
      */
     public url(slug: string): string {
         return this.routePrefix ? `${this.routePrefix}/${slug}` : slug;
+    }
+
+    /**
+     * Returns true if the consumer specified the given format.
+     */
+    public needsFormat(format: string): boolean {
+        return this.format === format;
     }
 }
