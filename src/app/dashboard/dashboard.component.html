@@ -7,6 +7,34 @@
         </li>
     </ul>
 
+    <ul *ngIf="needsLayout('fluid')" class="nav navbar-links hidden-md-down">
+        <li class="nav-item" *ngFor="let item of navigation">
+            <span class *ngIf="item.href && !item.routerLink">
+                <a *ngIf="show(item)"
+                   [href]="item.href"
+                   class="nav-link {{ item.classes }}">
+                    {{ item.label }}
+                </a>
+            </span>
+            <span class *ngIf="item.routerLink && !item.click">
+                <a *ngIf="show(item)"
+                   [routerLink]="item.routerLink"
+                   routerLinkActive="active"
+                   [routerLinkActiveOptions]="{ exact: item.exactActive || false }"
+                   class="nav-link {{ item.classes }}">
+                    {{ item.label }}
+                </a>
+            </span>
+            <span class *ngIf="item.click && !item.routerLink">
+                <a *ngIf="show(item)"
+                   (click)="item.click()" href="#"
+                   class="nav-link {{ item.classes }}">
+                    {{ item.label }}
+                </a>
+            </span>
+        </li>
+    </ul>
+
     <ul class="nav navbar-nav ml-auto mr-1">
         <li class="nav-item dropdown" dropdown *ngIf="authenticated()">
             <a class="nav-link nav-pill avatar" data-toggle="dropdown" role="button" aria-haspopup="true"
@@ -42,7 +70,7 @@
 </header>
 
 <div class="app-body">
-    <div class="sidebar">
+    <div class="sidebar" [class.hidden-lg-up]="needsLayout('fluid')">
         <nav class="sidebar-nav">
             <ul class="nav">
                 <li class="nav-item" *ngFor="let item of navigation">
@@ -75,7 +103,7 @@
     </div>
 
     <!-- Main content -->
-    <main class="main">
+    <main class="main" [class.fluid]="needsLayout('fluid')">
         <div class="container-fluid">
             <router-outlet></router-outlet>
         </div>

@@ -26,7 +26,8 @@ export interface Navigation {
 })
 export class DashboardComponent {
     @Input() public navigation: Navigation[] = [];
-    @Input() public studioUrl: string = '';
+    @Input() public layout: string           = 'dashboard';
+    @Input() public studioUrl: string        = '';
 
     constructor(protected router: Router,
                 protected toastr: ToastsManager,
@@ -85,5 +86,12 @@ export class DashboardComponent {
         }
 
         return item.show;
+    }
+
+    /**
+     * Returns whether the consumer requested a given layout.
+     */
+    public needsLayout(layout: string): boolean {
+        return this.layout === layout;
     }
 }

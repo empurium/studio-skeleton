@@ -83,4 +83,25 @@ header.navbar {
       }
     }
   }
+
+  .navbar-links {
+    position: absolute;
+    right: 70px;
+    padding-top: 15px;
+    .nav-link {
+      transition: all 150ms;
+      font-weight: bold;
+      font-size: 1.2em;
+      color: #e7e7ea;
+      padding: 0;
+      margin: 0.2em 1em;
+      &.active {
+        border-bottom: 3px solid $brand-success;
+        color: $brand-success;
+      }
+      &:hover {
+        color: $brand-success;
+      }
+    }
+  }
 }
