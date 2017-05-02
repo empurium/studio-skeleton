@@ -33,6 +33,13 @@ header.navbar {
     }
   }
 
+  .navbar-nav {
+    position: absolute;
+    right: 20px;
+    padding-top: 0;
+    line-height: 74px;
+  }
+
   .nav-item {
     .nav-link.nav-pill {
       width: 32px;
@@ -41,13 +48,19 @@ header.navbar {
       line-height: 34px;
       border: 1px solid $navbar-color;
       border-radius: 50em;
+      transition: all 150ms;
 
       &:hover {
+        color: $navbar-hover-color;
         border-color: $navbar-hover-color;
       }
 
       i {
         vertical-align: top;
+      }
+
+      .icon-user {
+        color: $navbar-color;
       }
 
       .badge-pill {
@@ -68,10 +81,6 @@ header.navbar {
           border: 0;
         }
 
-        .icon-user {
-          color: $navbar-color;
-        }
-
         .badge {
           margin-top: -22px;
           margin-left: 5px;
@@ -84,24 +93,19 @@ header.navbar {
     }
   }
 
-  .navbar-links {
-    position: absolute;
-    right: 70px;
-    padding-top: 15px;
-    .nav-link {
-      transition: all 150ms;
-      font-weight: bold;
-      font-size: 1.2em;
-      color: #e7e7ea;
-      padding: 0;
-      margin: 0.2em 1em;
-      &.active {
-        border-bottom: 3px solid $brand-success;
-        color: $brand-success;
-      }
-      &:hover {
-        color: $brand-success;
-      }
+  .nav-link {
+    transition: all 150ms;
+    font-weight: bold;
+    font-size: 1.2em;
+    color: #e7e7ea;
+    padding: 0;
+    margin: 0.2em 1em;
+    &.active {
+      border-bottom: 3px solid $brand-success;
+      color: $brand-success;
+    }
+    &:hover {
+      color: $brand-success;
     }
   }
 }

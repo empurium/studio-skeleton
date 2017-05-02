@@ -7,16 +7,16 @@
         </li>
     </ul>
 
-    <ul *ngIf="needsLayout('fluid')" class="nav navbar-links hidden-md-down">
-        <li class="nav-item" *ngFor="let item of navigation">
-            <span class *ngIf="item.href && !item.routerLink">
+    <ul class="nav navbar-nav">
+        <li *ngFor="let item of navigation" class="nav-item hidden-md-down">
+            <span *ngIf="needsLayout('fluid') && item.href && !item.routerLink">
                 <a *ngIf="show(item)"
                    [href]="item.href"
                    class="nav-link {{ item.classes }}">
                     {{ item.label }}
                 </a>
             </span>
-            <span class *ngIf="item.routerLink && !item.click">
+            <span *ngIf="needsLayout('fluid') && item.routerLink && !item.click">
                 <a *ngIf="show(item)"
                    [routerLink]="item.routerLink"
                    routerLinkActive="active"
@@ -25,7 +25,7 @@
                     {{ item.label }}
                 </a>
             </span>
-            <span class *ngIf="item.click && !item.routerLink">
+            <span *ngIf="needsLayout('fluid') && item.click && !item.routerLink">
                 <a *ngIf="show(item)"
                    (click)="item.click()" href="#"
                    class="nav-link {{ item.classes }}">
@@ -33,10 +33,16 @@
                 </a>
             </span>
         </li>
-    </ul>
 
-    <ul class="nav navbar-nav ml-auto mr-1">
-        <li class="nav-item dropdown" dropdown *ngIf="authenticated()">
+        <!-- not authenticated -->
+        <li *ngIf="!authenticated()" class="nav-item">
+            <a class="nav-link" href="#" (click)="login()">
+                Login
+            </a>
+        </li>
+
+        <!-- authenticated -->
+        <li *ngIf="authenticated()" class="nav-item dropdown" dropdown>
             <a class="nav-link nav-pill avatar" data-toggle="dropdown" role="button" aria-haspopup="true"
                aria-expanded="false" dropdownToggle>
                 <span class="icon-user"></span>
@@ -47,41 +53,38 @@
                     <strong>Account</strong>
                 </div>
 
-                <a class="dropdown-item" *ngIf="roles.has('dashboard')" [href]="studioUrl">
-                    <i class="fa fa-book"></i> Publication Studio
+                <a *ngIf="roles.has('dashboard')" class="dropdown-item" [href]="studioUrl">
+                    Publication Studio
                 </a>
 
                 <a class="dropdown-item" routerLink="/settings">
-                    <i class="fa fa-wrench"></i> Settings
+                    Settings
                 </a>
 
                 <a class="dropdown-item" (click)="logout()" href="#">
-                    <i class="fa fa-lock"></i> Logout
+                    Logout
                 </a>
             </div>
         </li>
-
-        <li class="nav-item hidden-md-down" *ngIf="!authenticated()">
-            <a class="nav-link" href="#" (click)="login()">
-                <i class="icon-user"></i> Login
-            </a>
-        </li>
     </ul>
+
+    <!--<ul class="nav navbar-nav ml-auto mr-1">-->
+    <!--</ul>-->
 </header>
 
 <div class="app-body">
     <div class="sidebar" [class.hidden-lg-up]="needsLayout('fluid')">
         <nav class="sidebar-nav">
             <ul class="nav">
-                <li class="nav-item" *ngFor="let item of navigation">
-                    <span class *ngIf="item.href && !item.routerLink">
+                <li *ngFor="let item of navigation" class="nav-item">
+                    <span *ngIf="item.href && !item.routerLink">
                         <a *ngIf="show(item)"
                            [href]="item.href"
                            class="nav-link {{ item.classes }}">
                             <i class="{{ item.icon }}"></i> {{ item.label }}
                         </a>
                     </span>
-                    <span class *ngIf="item.routerLink && !item.click">
+                    <span *ngIf="item.routerLink && !item.click">
                         <a *ngIf="show(item)"
                            [routerLink]="item.routerLink"
                            routerLinkActive="active"
@@ -90,7 +93,7 @@
                             <i class="{{ item.icon }}"></i> {{ item.label }}
                         </a>
                     </span>
-                    <span class *ngIf="item.click && !item.routerLink">
+                    <span *ngIf="item.click && !item.routerLink">
                         <a *ngIf="show(item)"
                            (click)="item.click()" href="#"
                            class="nav-link {{ item.classes }}">
