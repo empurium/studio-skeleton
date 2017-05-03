@@ -40,6 +40,9 @@ export class TierService {
         if (this.userTiers && this.userTiers.length) {
             return Observable.of(this.userTiers);
         }
+        if (!this.authentication.userId()) {
+            return Observable.of([]);
+        }
 
         return this.http
             .hostname(this.environment.api.vinyl)
