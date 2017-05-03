@@ -9,7 +9,7 @@ import { AuthenticationService } from '../../+services/authentication.service';
     styleUrls:   ['./locker.component.scss'],
 })
 export class LockerComponent {
-    constructor(private authentication: AuthenticationService) {
+    constructor(public authentication: AuthenticationService) {
     }
 
     /**
