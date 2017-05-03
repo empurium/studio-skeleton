@@ -1,5 +1,5 @@
 <div class="row" *ngIf="article">
-    <div class="col-sm-12 col-md-9 col-xlg-8">
+    <div class="col-sm-12 col-md-8">
         <div class="card animated fadeIn" *ngIf="!loading">
             <div class="card-block">
                 <div class="article-header">
@@ -47,22 +47,26 @@
         </div>
     </div>
 
-    <div class="col-sm-12 col-md-3 col-xlg-4">
+    <div class="col-sm-12 col-md-4">
         <h3 *ngIf="recent" class="article-section-label mb-1">
             The Latest
         </h3>
 
-        <div class="animated fadeIn mb-2" *ngFor="let article of recent">
-            <a routerLink="../{{ article.slug_uri }}">
-                <img src="{{ article.image_url }}" class="thumbnail"/>
-            </a>
+        <div class="row animated fadeIn mb-2" *ngFor="let article of recent">
+            <div class="col-sm-12 col-md-5">
+                <a routerLink="../{{ article.slug_uri }}">
+                    <img src="{{ article.image_url }}" class="thumbnail"/>
+                </a>
+            </div>
 
-            <a routerLink="../{{ article.slug_uri }}" class="article-link">{{ article.title }}</a>
-            <br/>
+            <div class="col-sm-12 col-md-7">
+                <a routerLink="../{{ article.slug_uri }}" class="article-link">{{ article.title }}</a>
+                <br/>
 
-            <span class="article-published-date">
-               {{ published(article) }}
-            </span>
+                <span class="article-published-date">
+                   {{ published(article) }}
+                </span>
+            </div>
         </div>
     </div>
 </div>
