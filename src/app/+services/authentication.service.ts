@@ -4,6 +4,7 @@ import { JwtHelper } from 'angular2-jwt';
 
 import { FREESCAN_ENV, Environment } from '../+models';
 
+
 @Injectable()
 export class AuthenticationService {
     private jwtHelper: JwtHelper = new JwtHelper();
@@ -46,19 +47,24 @@ export class AuthenticationService {
      * Attempt to parse the token(s) within the URL when the auth-server redirects
      * the user back to the app. This does not send the user to the login page.
      */
-    public attemptLogin(): boolean {
+    public attemptLogin(callback?: Function): boolean {
         return this.oAuthService.tryLogin({
-            // onTokenReceived: (context: Context): boolean => {
-            //     return !!context;
-            // },
+            onTokenReceived: (context: any): boolean => {
+                if (context && typeof callback === 'function') {
+                    callback(context);
+                }
+                return !!context;
+            },
         });
     }
 
     /**
      * Start the OAuth2 Implicit Grant Flow process.
+     * Allows specifying a state parameter, which will be given back after
+     * receiving a proper token.
      */
-    public login(): void {
-        this.oAuthService.initImplicitFlow();
+    public login(state: string|null = null): void {
+        this.oAuthService.initImplicitFlow(state);
     }
 
     /**
