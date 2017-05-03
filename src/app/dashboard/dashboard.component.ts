@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 
 import { AuthenticationService } from '../+services/authentication.service';
+import { WindowService } from '../+services/window.service';
 import { AlertService } from '../+services/alert.service';
 import { RoleService } from '../+services/role.service';
 
@@ -28,13 +29,16 @@ export class DashboardComponent {
     @Input() public navigation: Navigation[] = [];
     @Input() public layout: string           = 'dashboard';
     @Input() public studioUrl: string        = '';
+    private window: Window;
 
     constructor(protected router: Router,
                 protected toastr: ToastsManager,
                 protected vcr: ViewContainerRef,
                 protected alerts: AlertService,
                 protected authentication: AuthenticationService,
+                protected windowService: WindowService,
                 protected roles: RoleService) {
+        this.window = this.windowService.nativeWindow;
         this.toastr.setRootViewContainerRef(this.vcr);
     }
 
@@ -44,7 +48,11 @@ export class DashboardComponent {
      * Performed in AppComponent to remove from the URL as early as possible.
      */
     public attemptLogin(): boolean {
-        return this.authentication.attemptLogin();
+        return this.authentication.attemptLogin((context: any) => {
+            if (context && context.state) {
+                this.window.location.href = context.state;
+            }
+        });
     }
 
     /**
