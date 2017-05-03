@@ -74,7 +74,6 @@ export class DashboardComponent {
      */
     public logout(): boolean {
         if (this.authentication.logout()) {
-            this.router.navigate(['/']);
             this.alerts.info('Logged out.', null);
             return true;
         }
