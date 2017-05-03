@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import * as moment from 'moment';
+import * as _ from 'lodash';
 
 import { ArticlesResponse, Article } from '../../+models';
 import { ArticleService } from '../../+services/article.service';
@@ -49,5 +50,13 @@ export class ArticlesComponent implements OnInit {
      */
     public needsFormat(format: string): boolean {
         return this.format === format;
+    }
+
+    /**
+     * Retrieve the author.
+     */
+    public author(article: Article): string {
+        let author: string = _.get(article, 'person.data.display_name');
+        return author ? `by ${author}` : '';
     }
 }

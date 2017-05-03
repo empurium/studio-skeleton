@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import * as moment from 'moment';
+import * as _ from 'lodash';
 import { Observable } from 'rxjs';
 
 import { WindowService } from '../../+services/window.service';
@@ -104,5 +105,13 @@ export class ArticleComponent implements OnInit {
      */
     public published(article: Article): string {
         return moment.utc(article.published_at).fromNow();
+    }
+
+    /**
+     * Retrieve the author.
+     */
+    public author(article: Article): string {
+        let author: string = _.get(article, 'person.data.display_name');
+        return author ? `by ${author}` : '';
     }
 }

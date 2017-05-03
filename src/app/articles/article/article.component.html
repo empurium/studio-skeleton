@@ -1,12 +1,13 @@
-<div class="row" *ngIf="article">
+<div class="row studio-article" *ngIf="article">
     <div class="col-sm-12 col-md-8">
         <div class="card animated fadeIn" *ngIf="!loading">
             <div class="card-block">
                 <div class="article-header">
                     <h2>{{ article.title }}</h2>
 
-                    <span class="article-published-date">
+                    <span class="text-muted">
                         Posted {{ published(article) }}
+                        {{ author(article) }}
                     </span>
                 </div>
 
@@ -50,7 +51,7 @@
                 <a routerLink="../{{ article.slug_uri }}" class="article-link">{{ article.title }}</a>
                 <br/>
 
-                <span class="article-published-date">
+                <span class="text-muted">
                    {{ published(article) }}
                 </span>
             </div>

@@ -1,12 +1,13 @@
-<div *ngFor="let article of articles" class="animated fadeIn">
+<div *ngFor="let article of articles" class="animated fadeIn studio-articles">
     <!-- Vertical display -->
     <div *ngIf="needsFormat('vertical')" class="card">
         <div class="card-block">
             <div class="article-header">
                 <h2><a [routerLink]="url(article.slug_uri)">{{ article.title }}</a></h2>
 
-                <span class="article-published-date">
+                <span class="text-muted">
                     Posted {{ published(article) }}
+                    {{ author(article) }}
                 </span>
             </div>
 
@@ -36,8 +37,9 @@
                     <div class="article-header">
                         <h2><a [routerLink]="url(article.slug_uri)">{{ article.title }}</a></h2>
 
-                        <span class="article-published-date">
+                        <span class="text-muted">
                             Posted {{ published(article) }}
+                            {{ author(article) }}
                         </span>
                     </div>
 
