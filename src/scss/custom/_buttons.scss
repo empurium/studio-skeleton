@@ -4,3 +4,16 @@
     cursor: not-allowed;
   }
 }
+
+.btn.btn-href {
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  color: $brand-primary;
+  transition: all 250ms;
+  &:hover {
+    text-decoration: underline;
+    color: darken($brand-primary, 20%);
+  }
+}

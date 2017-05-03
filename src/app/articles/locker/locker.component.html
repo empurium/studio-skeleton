@@ -2,16 +2,14 @@
     <h4>This publication is only accessible to subscribers.</h4>
     <h6>Join now to get the full scoop!</h6>
 
-    <a *ngIf="authentication.authenticated()"
-       routerLink="./"
+    <a routerLink="./"
        [queryParams]="{ module: 'billing', step: 'intro' }"
-       class="btn btn-primary btn-pointer">Become a Subscriber</a>
+       class="btn btn-primary btn-pointer mt-1 mb-3">Become a Subscriber</a>
 
     <div *ngIf="!authentication.authenticated()">
         <p>
             Already a subscriber?
-            <br />
-            <a (click)="login()" class="btn-pointer">Login</a>
+            <button (click)="login()" class="btn btn-href btn-pointer">Login</button>
         </p>
     </div>
 </div>
