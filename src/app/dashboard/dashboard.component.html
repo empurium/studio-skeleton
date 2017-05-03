@@ -36,9 +36,9 @@
 
         <!-- not authenticated -->
         <li *ngIf="!authenticated()" class="nav-item">
-            <a class="nav-link" href="#" (click)="login()">
+            <button (click)="login()" class="nav-link">
                 Login
-            </a>
+            </button>
         </li>
 
         <!-- authenticated -->
@@ -67,9 +67,6 @@
             </div>
         </li>
     </ul>
-
-    <!--<ul class="nav navbar-nav ml-auto mr-1">-->
-    <!--</ul>-->
 </header>
 
 <div class="app-body">

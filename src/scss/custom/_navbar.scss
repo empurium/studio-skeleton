@@ -100,6 +100,9 @@ header.navbar {
     color: #e7e7ea;
     padding: 0;
     margin: 0.2em 1em;
+    background: transparent;
+    border: none;
+    cursor: pointer;
     &.active {
       border-bottom: 3px solid $brand-success;
       color: $brand-success;
