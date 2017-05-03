@@ -4,7 +4,6 @@ import * as moment from 'moment';
 import { Observable } from 'rxjs';
 
 import { WindowService } from '../../+services/window.service';
-import { AuthenticationService } from '../../+services/authentication.service';
 import { TierService } from '../../+services/tier.service';
 import { ArticleService } from '../../+services/article.service';
 import { Tier, ArticleResponse, ArticlesResponse, Article } from '../../+models';
@@ -31,7 +30,6 @@ export class ArticleComponent implements OnInit {
     private window: Window;
 
     constructor(private route: ActivatedRoute,
-                private authentication: AuthenticationService,
                 private tierService: TierService,
                 private articleService: ArticleService,
                 private windowService: WindowService) {
@@ -106,12 +104,5 @@ export class ArticleComponent implements OnInit {
      */
     public published(article: Article): string {
         return moment.utc(article.published_at).fromNow();
-    }
-
-    /**
-     * Begin the login flow.
-     */
-    public login(): void {
-        this.authentication.login();
     }
 }

@@ -17,6 +17,7 @@ import { ArticleService } from '../+services/article.service';
 // Components
 import { ArticlesComponent } from './articles/articles.component';
 import { ArticleComponent } from './article/article.component';
+import { LockerComponent } from './locker/locker.component';
 
 // Pipes
 import { StudioSanitizeHtmlPipe } from '../+pipes/sanitize-html.pipe';
@@ -30,6 +31,7 @@ const MODULES: any = [
 const COMPONENTS: any = [
     ArticlesComponent,
     ArticleComponent,
+    LockerComponent,
 ];
 
 const PIPES: any = [

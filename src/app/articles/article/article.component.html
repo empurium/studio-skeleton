@@ -28,20 +28,7 @@
                 </div>
 
                 <div *ngIf="!article.content">
-                    <div class="article-sales">
-                        <h4>This publication is only accessible to subscribers.</h4>
-                        <p>Join now to get the full scoop!</p>
-
-                        <a *ngIf="authentication.authenticated()"
-                           routerLink="./"
-                           [queryParams]="{ module: 'billing', step: 'plans' }"
-                           class="btn btn-primary btn-pointer">Become a Subscriber</a>
-
-                        <div *ngIf="!authentication.authenticated()">
-                            <p>Already a subscriber?</p>
-                            <button (click)="login()" class="btn btn-lg btn-primary btn-pointer">Login</button>
-                        </div>
-                    </div>
+                    <studio-locker></studio-locker>
                 </div>
             </div>
         </div>
