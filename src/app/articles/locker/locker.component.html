@@ -4,7 +4,7 @@
 
     <a *ngIf="authentication.authenticated()"
        routerLink="./"
-       [queryParams]="{ module: 'billing', step: 'plans' }"
+       [queryParams]="{ module: 'billing', step: 'intro' }"
        class="btn btn-primary btn-pointer">Become a Subscriber</a>
 
     <div *ngIf="!authentication.authenticated()">
