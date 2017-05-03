@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
 import { AuthenticationService } from '../../+services/authentication.service';
+import { WindowService } from '../../+services/window.service';
 
 
 @Component({
@@ -9,13 +10,18 @@ import { AuthenticationService } from '../../+services/authentication.service';
     styleUrls:   ['./locker.component.scss'],
 })
 export class LockerComponent {
-    constructor(public authentication: AuthenticationService) {
+    private window: Window;
+
+    constructor(public authentication: AuthenticationService,
+                private windowService: WindowService) {
+        this.window = this.windowService.nativeWindow;
     }
 
     /**
      * Begin the login flow.
      */
     public login(): void {
-        this.authentication.login();
+        let state: string = this.window.location ? this.window.location.href : null;
+        this.authentication.login(state);
     }
 }
