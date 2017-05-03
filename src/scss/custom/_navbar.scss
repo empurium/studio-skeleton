@@ -104,7 +104,7 @@ header.navbar {
     border: none;
     cursor: pointer;
     &.active {
-      border-bottom: 3px solid $brand-success;
+      //border-bottom: 3px solid $brand-success;
       color: $brand-success;
     }
     &:hover {
