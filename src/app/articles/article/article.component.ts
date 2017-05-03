@@ -111,7 +111,7 @@ export class ArticleComponent implements OnInit {
      * Retrieve the author.
      */
     public author(article: Article): string {
-        let author: string = _.get(article, 'person.data.display_name');
+        let author: any = _.get(article, 'person.data.display_name');
         return author ? `by ${author}` : '';
     }
 }
