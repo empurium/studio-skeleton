@@ -19,6 +19,14 @@
   max-width: 1184px;
 }
 
+a {
+  color: $href-link-color;
+  &:hover {
+    color: $href-link-hover-color;
+    text-decoration: none;
+  }
+}
+
 .img-fluid-full {
   width: 100%;
   height: auto;

@@ -201,3 +201,8 @@ $footer-borders: (
 
 $card-icon-bg:                      transparent;
 $card-icon-color:                   $body-color;
+
+// Links
+
+$href-link-color:                   $brand-primary;
+$href-link-hover-color:             darken($brand-primary, 20%);
