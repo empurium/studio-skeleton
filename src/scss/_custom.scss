@@ -21,6 +21,7 @@
 
 a {
   color: $href-link-color;
+  transition: all 150ms ease;
   &:hover {
     color: $href-link-hover-color;
     text-decoration: none;
