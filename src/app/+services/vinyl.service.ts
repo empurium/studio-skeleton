@@ -44,6 +44,7 @@ export class VinylService {
             break;
         case 'publication.studio':
             clientId    = '1';
+            redirectURI = `https://${hostname}`;
             break;
 
         // 720 Global
@@ -55,7 +56,8 @@ export class VinylService {
             clientId = '8';
             break;
         case 'studio.720global.com':
-            clientId = '4';
+            clientId    = '4';
+            redirectURI = `https://${hostname}`;
             break;
 
         // 360 Global
@@ -67,7 +69,8 @@ export class VinylService {
             clientId = '12';
             break;
         case 'studio.360global.space':
-            clientId = '6';
+            clientId    = '6';
+            redirectURI = `https://${hostname}`;
             break;
         }
 
