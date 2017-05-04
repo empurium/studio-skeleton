@@ -42,6 +42,9 @@ export class VinylService {
         case 'staging.publication.studio':
             clientId    = '4';
             break;
+        case 'publication.studio':
+            clientId    = '1';
+            break;
 
         // 720 Global
         case 'studio.720global.local':
@@ -51,6 +54,9 @@ export class VinylService {
         case 'staging-studio.720global.com':
             clientId = '8';
             break;
+        case 'studio.720global.com':
+            clientId = '4';
+            break;
 
         // 360 Global
         case 'studio.360global.local':
@@ -59,6 +65,9 @@ export class VinylService {
             break;
         case 'staging-studio.360global.space':
             clientId = '12';
+            break;
+        case 'studio.360global.space':
+            clientId = '6';
             break;
         }
 
