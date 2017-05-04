@@ -97,18 +97,17 @@ header.navbar {
     transition: all 150ms;
     font-weight: bold;
     font-size: 1.2em;
-    color: #e7e7ea;
     padding: 0;
     margin: 0.2em 1em;
     background: transparent;
     border: none;
     cursor: pointer;
     &.active {
-      //border-bottom: 3px solid $brand-success;
-      color: $brand-success;
+      //border-bottom: 3px solid $sidebar-nav-link-active-color;
+      color: $sidebar-nav-link-active-color;
     }
     &:hover {
-      color: $brand-success;
+      color: $sidebar-nav-link-hover-color;
     }
   }
 }

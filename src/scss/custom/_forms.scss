@@ -2,6 +2,13 @@
   font-size: 1.5em;
 }
 
+.form-control {
+  color: $gray-dark;
+  &:focus {
+    color: $gray-dark;
+  }
+}
+
 .ng-invalid:not(form, .ng-pristine) {
   border-left: 3px solid $brand-danger;
 }
