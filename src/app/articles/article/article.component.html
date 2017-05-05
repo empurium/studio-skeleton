@@ -1,5 +1,7 @@
 <div class="row studio-article" *ngIf="article">
     <div class="col-sm-12 col-md-8">
+        <studio-loading [show]="loading"></studio-loading>
+
         <div class="card animated fadeIn" *ngIf="!loading">
             <div class="card-block">
                 <div class="article-header">

@@ -79,7 +79,6 @@ export class ArticleComponent implements OnInit {
     public loadRecent(): void {
         this.articleService.all()
             .subscribe((response: ArticlesResponse) => {
-                this.loading = false;
                 this.recent = response.data;
             });
     }
