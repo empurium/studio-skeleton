@@ -24,10 +24,14 @@ declare global {
     styleUrls:   ['./article.component.scss'],
 })
 export class ArticleComponent implements OnInit {
-    public article: Article;
-    public recent: Article[];
     public tiers: Tier[];
-    public loading: boolean = true;
+    public article: Article;
+    public recent: Observable<Article[]>;
+    public page: number           = 1;
+    public total: number          = 0;
+    public limit: number          = 10;
+    public loading: boolean       = true;
+    public loadingRecent: boolean = true;
     private window: Window;
 
     constructor(private route: ActivatedRoute,
@@ -76,11 +80,21 @@ export class ArticleComponent implements OnInit {
     /**
      * Request the recent articles to show more for the user.
      */
-    public loadRecent(): void {
-        this.articleService.all()
-            .subscribe((response: ArticlesResponse) => {
-                this.recent = response.data;
-            });
+    public loadRecent(page: number = this.page): void {
+        this.page          = page;
+        this.loadingRecent = true;
+        this.window.scrollTo(0, 0);
+
+        this.recent = this.articleService
+            .all(page, this.limit)
+            .do(
+                (response: ArticlesResponse) => {
+                    this.loadingRecent = false;
+                    this.total         = +_.get(response, 'meta.pagination.total');
+                },
+                (error: any) => console.error(error),
+            )
+            .map((response: ArticlesResponse) => response.data);
     }
 
     /**
@@ -91,7 +105,7 @@ export class ArticleComponent implements OnInit {
     public loadShareButtons(): void {
         setTimeout(
             () => {
-                this.window.a2a_config = this.window.a2a_config || {};
+                this.window.a2a_config          = this.window.a2a_config || {};
                 this.window.a2a_config.linkname = this.article.title;
                 this.window.a2a.init('page');
             },

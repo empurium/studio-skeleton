@@ -42,7 +42,8 @@
             The Latest
         </h3>
 
-        <div class="row animated fadeIn mb-2" *ngFor="let article of recent">
+        <div *ngFor="let article of recent | async | paginate: { itemsPerPage: limit, currentPage: page, totalItems: total }"
+             class="row animated fadeIn mb-2">
             <div class="col-sm-12 col-md-5">
                 <a routerLink="../{{ article.slug_uri }}">
                     <img src="{{ article.image_url }}" class="thumbnail"/>
@@ -56,6 +57,12 @@
                 <span class="text-muted">
                    {{ published(article) }}
                 </span>
+            </div>
+        </div>
+
+        <div class="row" *ngIf="!loadingRecent">
+            <div class="col-sm-12 text-center">
+                <pagination-controls (pageChange)="loadRecent($event)"></pagination-controls>
             </div>
         </div>
     </div>
