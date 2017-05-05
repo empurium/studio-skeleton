@@ -9,7 +9,6 @@ import { FREESCAN_ENV, Environment, Article, ArticleResponse, ArticlesResponse }
 @Injectable()
 export class ArticleService {
     protected limit: number = 15;
-    protected articles: ArticlesResponse;
     protected slugs: { [key: string]: ArticleResponse } = {};
     protected omit: string[] = ['id', 'is_published', 'momentPublished'];
 
@@ -22,18 +21,10 @@ export class ArticleService {
      * Supports pagination and limit.
      */
     public all(page: number = 1, limit: number = this.limit): Observable<ArticlesResponse> {
-        if (this.articles) {
-            return Observable.of(this.articles);
-        }
-
         return this.http
             .hostname(this.environment.api.publications)
             .query({ page, limit })
-            .get('articles')
-            .map((response: ArticlesResponse) => {
-                this.articles = response;
-                return response;
-            });
+            .get('articles');
     }
 
     /**
@@ -97,6 +88,6 @@ export class ArticleService {
      * Forget the client-side cache.
      */
     public forget(): void {
-        this.articles = null;
+        this.slugs = {};
     }
 }
