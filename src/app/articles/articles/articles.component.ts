@@ -35,7 +35,7 @@ export class ArticlesComponent implements OnInit {
      * Relative time since the article was posted.
      */
     public published(article: Article): string {
-        return moment.utc(article.published_at).fromNow();
+        return moment.utc(article.published_at).format('lll');
     }
 
     /**
