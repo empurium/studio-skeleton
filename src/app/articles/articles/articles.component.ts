@@ -23,7 +23,7 @@ export class ArticlesComponent implements OnInit {
     public total: number                = 0;
     public loading: boolean             = true;
 
-    constructor(private articlesService: ArticleService) {
+    constructor(private articleService: ArticleService) {
     }
 
     public ngOnInit(): void {
@@ -37,7 +37,7 @@ export class ArticlesComponent implements OnInit {
         this.page    = page;
         this.loading = true;
 
-        this.articles = this.articlesService
+        this.articles = this.articleService
             .all(page, this.limit)
             .do(
                 (response: ArticlesResponse) => {
