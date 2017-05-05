@@ -42,6 +42,8 @@
             The Latest
         </h3>
 
+        <studio-loading [show]="loadingRecent"></studio-loading>
+
         <div *ngFor="let article of recent | async | paginate: { itemsPerPage: limit, currentPage: page, totalItems: total }"
              class="row animated fadeIn mb-2">
             <div class="col-sm-12 col-md-5">
