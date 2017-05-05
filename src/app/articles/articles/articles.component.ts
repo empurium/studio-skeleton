@@ -4,6 +4,7 @@ import * as _ from 'lodash';
 
 import { ArticlesResponse, Article } from '../../+models';
 import { ArticleService } from '../../+services/article.service';
+import { Observable } from 'rxjs/Observable';
 
 
 @Component({
@@ -13,22 +14,39 @@ import { ArticleService } from '../../+services/article.service';
 })
 export class ArticlesComponent implements OnInit {
     @Input() public routePrefix: string = '';
-    @Input() public limit: number       = 15;
+    @Input() public pagination: boolean = true;
     @Input() public format: string      = 'vertical';
     @Input() public full: boolean       = true;
-    public articles: Article[];
+    @Input() public limit: number       = 15;
+    public articles: Observable<Article[]>;
+    public page: number                 = 1;
+    public total: number                = 0;
+    public loading: boolean             = true;
 
-    constructor(private articleService: ArticleService) {
+    constructor(private articlesService: ArticleService) {
     }
 
     public ngOnInit(): void {
-        this.articleService.all(1, this.limit)
-            .subscribe(
+        this.load();
+    }
+
+    /**
+     * Get the articles for the given page.
+     */
+    public load(page: number = this.page): void {
+        this.page    = page;
+        this.loading = true;
+
+        this.articles = this.articlesService
+            .all(page, this.limit)
+            .do(
                 (response: ArticlesResponse) => {
-                    this.articles = response.data;
+                    this.loading = false;
+                    this.total   = +_.get(response, 'meta.pagination.total');
                 },
                 (error: any) => console.error(error),
-            );
+            )
+            .map((response: ArticlesResponse) => response.data);
     }
 
     /**

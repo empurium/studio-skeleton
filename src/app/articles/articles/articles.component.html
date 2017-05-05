@@ -1,4 +1,7 @@
-<div *ngFor="let article of articles" class="animated fadeIn studio-articles">
+<studio-loading [show]="loading"></studio-loading>
+
+<div *ngFor="let article of articles | async | paginate: { itemsPerPage: limit, currentPage: page, totalItems: total }"
+     class="animated fadeIn studio-articles">
     <!-- Vertical display -->
     <div *ngIf="needsFormat('vertical')" class="card">
         <div class="card-block">
@@ -51,5 +54,11 @@
                 </div>
             </div>
         </div>
+    </div>
+</div>
+
+<div class="row" *ngIf="pagination && !loading">
+    <div class="col-sm-12 text-center">
+        <pagination-controls (pageChange)="load($event)"></pagination-controls>
     </div>
 </div>

@@ -3,6 +3,7 @@ import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { OAuthService } from 'angular-oauth2-oidc';
+import { NgxPaginationModule } from 'ngx-pagination';
 import { HttpService } from '@freescan/http';
 
 // Core
@@ -13,6 +14,9 @@ import { WindowService } from '../+services/window.service';
 import { AuthenticationService } from '../+services/authentication.service';
 import { TierService } from '../+services/tier.service';
 import { ArticleService } from '../+services/article.service';
+
+// StudioModule is always handy
+import { StudioModule } from '../studio.module';
 
 // Components
 import { ArticlesComponent } from './articles/articles.component';
@@ -26,6 +30,8 @@ const MODULES: any = [
     CommonModule,
     HttpModule,
     RouterModule,
+    NgxPaginationModule,
+    StudioModule,
 ];
 
 const COMPONENTS: any = [

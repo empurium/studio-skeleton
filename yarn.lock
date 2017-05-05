@@ -494,6 +494,10 @@ ngx-bootstrap@1.6.6:
   dependencies:
     moment "2.18.1"
 
+ngx-pagination@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/ngx-pagination/-/ngx-pagination-3.0.0.tgz#9db3b9088572d200d90bb562765d8acf7557f397"
+
 npm-run-path@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/npm-run-path/-/npm-run-path-1.0.0.tgz#f5c32bf595fe81ae927daec52e82f8b000ac3c8f"
