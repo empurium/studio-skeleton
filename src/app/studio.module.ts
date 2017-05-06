@@ -18,6 +18,7 @@ import { TierService } from './+services/tier.service';
 import { TierResourceService } from './+services/tier-resource.service';
 import { AlertService } from './+services/alert.service';
 import { ArticleService } from './+services/article.service';
+import { FileService } from './+services/file.service';
 import { PeopleService } from './+services/people.service';
 
 // Components
@@ -96,6 +97,11 @@ export class StudioModule {
                 {
                     provide:  ArticleService,
                     useClass: ArticleService,
+                    deps:     [HttpService, FREESCAN_ENV],
+                },
+                {
+                    provide:  FileService,
+                    useClass: FileService,
                     deps:     [HttpService, FREESCAN_ENV],
                 },
             ],

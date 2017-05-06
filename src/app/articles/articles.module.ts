@@ -14,6 +14,7 @@ import { WindowService } from '../+services/window.service';
 import { AuthenticationService } from '../+services/authentication.service';
 import { TierService } from '../+services/tier.service';
 import { ArticleService } from '../+services/article.service';
+import { FileService } from '../+services/file.service';
 
 // StudioModule is always handy
 import { StudioModule } from '../studio.module';
@@ -81,6 +82,11 @@ export class ArticlesModule {
                 {
                     provide:  ArticleService,
                     useClass: ArticleService,
+                    deps:     [HttpService, FREESCAN_ENV],
+                },
+                {
+                    provide:  FileService,
+                    useClass: FileService,
                     deps:     [HttpService, FREESCAN_ENV],
                 },
             ],

@@ -19,3 +19,4 @@ export * from './src/app/+services/tier-resource.service';
 export * from './src/app/+services/people.service';
 export * from './src/app/+services/alert.service';
 export * from './src/app/+services/article.service';
+export * from './src/app/+services/file.service';

@@ -4,3 +4,4 @@ export * from './user.model';
 export * from './people.model';
 export * from './tier.model';
 export * from './article.model';
+export * from './file.model';
