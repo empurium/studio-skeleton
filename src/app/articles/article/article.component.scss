@@ -13,6 +13,12 @@
     }
   }
 
+  .article-content {
+    img {
+      max-width: 100% !important;
+    }
+  }
+
   .article-link {
     font-size: 1.2em;
     transition: all 150ms;

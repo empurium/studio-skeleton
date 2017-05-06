@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import * as moment from 'moment';
 import * as _ from 'lodash';
@@ -22,6 +22,7 @@ declare global {
     selector:    'studio-article',
     templateUrl: 'article.component.html',
     styleUrls:   ['./article.component.scss'],
+    encapsulation: ViewEncapsulation.None,
 })
 export class ArticleComponent implements OnInit {
     public tiers: Tier[];
