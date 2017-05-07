@@ -16,8 +16,8 @@ export class ArticlesComponent implements OnInit {
     @Input() public routePrefix: string = '';
     @Input() public pagination: boolean = true;
     @Input() public format: string      = 'vertical';
-    @Input() public full: boolean       = true;
     @Input() public limit: number       = 15;
+    @Input() public columns: number     = 2;
     public articles: Observable<Article[]>;
     public page: number                 = 1;
     public total: number                = 0;
@@ -76,5 +76,12 @@ export class ArticlesComponent implements OnInit {
     public author(article: Article): string {
         let author: any = _.get(article, 'person.data.display_name');
         return author ? `by ${author}` : '';
+    }
+
+    /**
+     * Return a col-sm-X class name depending on the number of requested columns.
+     */
+    public columnClass(): string {
+        return `col-md-${12 / this.columns}`;
     }
 }

@@ -1,55 +1,49 @@
 <studio-loading [show]="loading"></studio-loading>
 
-<div *ngFor="let article of articles | async | paginate: { itemsPerPage: limit, currentPage: page, totalItems: total }"
-     class="animated fadeIn studio-articles">
-    <!-- Vertical display -->
-    <div *ngIf="needsFormat('vertical')" class="card">
-        <div class="card-block">
-            <div class="article-header">
-                <h2><a [routerLink]="url(article.slug_uri)">{{ article.title }}</a></h2>
+<div class="row">
+    <div *ngFor="let article of articles | async | paginate: { itemsPerPage: limit, currentPage: page, totalItems: total }"
+         class="animated fadeIn studio-articles col-sm-12" [ngClass]="columnClass()">
+        <!-- Vertical display -->
+        <div *ngIf="needsFormat('vertical')" class="card">
+            <div class="card-block">
+                <div class="article-header">
+                    <h2><a [routerLink]="url(article.slug_uri)">{{ article.title }}</a></h2>
 
-                <span class="text-muted">
-                    Posted {{ published(article) }}
-                    {{ author(article) }}
-                </span>
-            </div>
-
-            <a [routerLink]="url(article.slug_uri)">
-                <img src="{{ article.image_url }}" class="thumbnail mb-2" />
-            </a>
-
-            <p>{{ article.preview }}</p>
-
-            <div *ngIf="full">
-                <p [innerHTML]="article.content | studioSanitizeHtml"></p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Horizontal display -->
-    <div *ngIf="needsFormat('horizontal')" class="card">
-        <div class="card-block">
-            <div class="row">
-                <div class="col-sm-3 col-md-4">
-                    <a [routerLink]="url(article.slug_uri)">
-                        <img src="{{ article.image_url }}" class="thumbnail mb-2" />
-                    </a>
+                    <span class="text-muted">
+                        Posted {{ published(article) }}
+                        {{ author(article) }}
+                    </span>
                 </div>
 
-                <div class="col-sm-9 col-md-8">
-                    <div class="article-header">
-                        <h2><a [routerLink]="url(article.slug_uri)">{{ article.title }}</a></h2>
+                <a [routerLink]="url(article.slug_uri)">
+                    <img src="{{ article.image_url }}" class="thumbnail mb-2" />
+                </a>
 
-                        <span class="text-muted">
-                            Posted {{ published(article) }}
-                            {{ author(article) }}
-                        </span>
+                <p>{{ article.preview }}</p>
+            </div>
+        </div>
+
+        <!-- Horizontal display -->
+        <div *ngIf="needsFormat('horizontal')" class="card">
+            <div class="card-block">
+                <div class="row">
+                    <div class="col-sm-3 col-md-4">
+                        <a [routerLink]="url(article.slug_uri)">
+                            <img src="{{ article.image_url }}" class="thumbnail mb-2" />
+                        </a>
                     </div>
 
-                    <p>{{ article.preview }}</p>
+                    <div class="col-sm-9 col-md-8">
+                        <div class="article-header">
+                            <h2><a [routerLink]="url(article.slug_uri)">{{ article.title }}</a></h2>
 
-                    <div *ngIf="full">
-                        <p [innerHTML]="article.content | studioSanitizeHtml"></p>
+                            <span class="text-muted">
+                                Posted {{ published(article) }}
+                                {{ author(article) }}
+                            </span>
+                        </div>
+
+                        <p>{{ article.preview }}</p>
                     </div>
                 </div>
             </div>
