@@ -4,6 +4,7 @@
 @import 'custom/cursors';
 @import 'custom/datetimepicker';
 @import 'custom/forms';
+@import 'custom/hero';
 @import 'custom/navbar';
 @import 'custom/sidebar';
 @import 'custom/tables';
@@ -15,9 +16,10 @@
 }
 
 .main.fluid {
-  margin-left: auto !important;
-  margin-right: auto !important;
-  max-width: 1184px;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
 }
 
 a {
