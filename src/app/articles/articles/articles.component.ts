@@ -17,7 +17,7 @@ export class ArticlesComponent implements OnInit {
     @Input() public pagination: boolean = true;
     @Input() public format: string      = 'vertical';
     @Input() public limit: number       = 15;
-    @Input() public columns: number     = 2;
+    @Input() public columns: number     = 3;
     public articles: Observable<Article[]>;
     public page: number                 = 1;
     public total: number                = 0;

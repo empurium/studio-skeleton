@@ -7,7 +7,7 @@
         <div *ngIf="needsFormat('vertical')" class="card">
             <div class="card-block">
                 <div class="article-header">
-                    <h2><a [routerLink]="url(article.slug_uri)">{{ article.title }}</a></h2>
+                    <h4><a [routerLink]="url(article.slug_uri)">{{ article.title }}</a></h4>
 
                     <span class="text-muted">
                         Posted {{ published(article) }}
@@ -20,6 +20,8 @@
                 </a>
 
                 <p>{{ article.preview }}</p>
+
+                <a [routerLink]="url(article.slug_uri)">Read More</a>
             </div>
         </div>
 
@@ -35,7 +37,7 @@
 
                     <div class="col-sm-9 col-md-8">
                         <div class="article-header">
-                            <h2><a [routerLink]="url(article.slug_uri)">{{ article.title }}</a></h2>
+                            <h4><a [routerLink]="url(article.slug_uri)">{{ article.title }}</a></h4>
 
                             <span class="text-muted">
                                 Posted {{ published(article) }}
@@ -44,6 +46,8 @@
                         </div>
 
                         <p>{{ article.preview }}</p>
+
+                        <a [routerLink]="url(article.slug_uri)">Read More</a>
                     </div>
                 </div>
             </div>
