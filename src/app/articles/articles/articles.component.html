@@ -10,7 +10,7 @@
                     <h4><a [routerLink]="url(article.slug_uri)">{{ article.title }}</a></h4>
 
                     <span class="text-muted">
-                        Posted {{ published(article) }}
+                        Posted {{ published(article) }}<br />
                         {{ author(article) }}
                     </span>
                 </div>
@@ -40,7 +40,7 @@
                             <h4><a [routerLink]="url(article.slug_uri)">{{ article.title }}</a></h4>
 
                             <span class="text-muted">
-                                Posted {{ published(article) }}
+                                Posted {{ published(article) }}<br />
                                 {{ author(article) }}
                             </span>
                         </div>
