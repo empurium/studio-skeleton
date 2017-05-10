@@ -3,7 +3,7 @@ import * as moment from 'moment';
 import * as _ from 'lodash';
 
 import { ArticlesResponse, Article } from '../../+models';
-import { ArticleService } from '../../+services/article.service';
+import { ArticleService, QueryParams } from '../../+services/article.service';
 import { Observable } from 'rxjs/Observable';
 
 
@@ -13,6 +13,7 @@ import { Observable } from 'rxjs/Observable';
     styleUrls:   ['./articles.component.scss'],
 })
 export class ArticlesComponent implements OnInit {
+    @Input() public tiered: boolean;
     @Input() public routePrefix: string = '';
     @Input() public pagination: boolean = true;
     @Input() public format: string      = 'vertical';
@@ -37,8 +38,13 @@ export class ArticlesComponent implements OnInit {
         this.page    = page;
         this.loading = true;
 
+        let query: QueryParams = { page, limit: this.limit };
+        if (this.tiered) {
+            query.tiered = this.tiered;
+        }
+
         this.articles = this.articleService
-            .all(page, this.limit)
+            .all(query)
             .do(
                 (response: ArticlesResponse) => {
                     this.loading = false;

@@ -87,7 +87,7 @@ export class ArticleComponent implements OnInit {
         this.window.scrollTo(0, 0);
 
         this.recent = this.articleService
-            .all(page, this.limit)
+            .all({ page, limit: this.limit })
             .do(
                 (response: ArticlesResponse) => {
                     this.loadingRecent = false;

@@ -5,11 +5,19 @@ import { Observable } from 'rxjs/Observable';
 
 import { FREESCAN_ENV, Environment, Article, ArticleResponse, ArticlesResponse } from '../+models';
 
+export interface QueryParams {
+    [key: string]: string | number | boolean;
+    page?: number;
+    limit?: number;
+    tiered?: boolean;
+}
+
 
 @Injectable()
 export class ArticleService {
-    protected limit: number = 15;
     protected slugs: { [key: string]: ArticleResponse } = {};
+
+    protected limit: number  = 15;
     protected omit: string[] = ['id', 'is_published', 'momentPublished'];
 
     constructor(protected http: HttpService,
@@ -20,10 +28,13 @@ export class ArticleService {
      * Request the latest articles. Caches on the client.
      * Supports pagination and limit.
      */
-    public all(page: number = 1, limit: number = this.limit): Observable<ArticlesResponse> {
+    public all(query: QueryParams = {}): Observable<ArticlesResponse> {
+        query.page  = query.page || 1;
+        query.limit = query.limit || this.limit;
+
         return this.http
             .hostname(this.environment.api.publications)
-            .query({ page, limit })
+            .query(query)
             .get('articles');
     }
 
