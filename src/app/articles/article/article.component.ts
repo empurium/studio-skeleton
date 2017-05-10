@@ -106,9 +106,12 @@ export class ArticleComponent implements OnInit {
     public loadShareButtons(): void {
         setTimeout(
             () => {
+                this.window.a2a                 = this.window.a2a || {};
                 this.window.a2a_config          = this.window.a2a_config || {};
                 this.window.a2a_config.linkname = this.article.title;
-                this.window.a2a.init('page');
+                if (typeof this.window.a2a.init === 'function') {
+                    this.window.a2a.init('page');
+                }
             },
             1500,
         );
