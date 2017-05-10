@@ -24,7 +24,7 @@
                     <!--<a class="a2a_button_linkedin"></a>-->
                 <!--</div>-->
 
-                <p>{{ article.preview }}</p>
+                <p [innerHTML]="article.preview | studioSanitizeHtml" [class.preview-fade]="!article.content"></p>
 
                 <div *ngIf="article.content">
                     <p [innerHTML]="article.content | studioSanitizeHtml"></p>
