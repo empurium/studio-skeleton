@@ -10,7 +10,7 @@
                     <h4><a [routerLink]="url(article.slug_uri)">{{ article.title }}</a></h4>
                 </div>
 
-                <a [routerLink]="url(article.slug_uri)">
+                <a *ngIf="article.image_url" [routerLink]="url(article.slug_uri)">
                     <img src="{{ article.image_url }}" class="thumbnail mb-1" />
                 </a>
 
@@ -31,14 +31,14 @@
         <div *ngIf="needsFormat('horizontal')" class="card">
             <div class="card-block">
                 <div class="row">
-                    <div class="col-sm-3 col-md-4">
+                    <div *ngIf="article.image_url" class="col-sm-3 col-md-4">
                         <a [routerLink]="url(article.slug_uri)">
                             <img src="{{ article.image_url }}" class="thumbnail mb-1" />
                         </a>
                     </div>
 
-                    <div class="col-sm-9 col-md-8">
-                        <div class="article-header mb-1">
+                    <div [ngClass]="{ 'col-sm-9 col-md-8': article.image_url, 'col-sm-12': !article.image_url }">
+                        <div class="article-header mb-0">
                             <h4><a [routerLink]="url(article.slug_uri)">{{ article.title }}</a></h4>
                         </div>
 

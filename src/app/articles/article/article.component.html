@@ -8,12 +8,12 @@
                     <h2>{{ article.title }}</h2>
 
                     <span class="text-muted">
-                        {{ published(article) }}
+                        Posted {{ published(article) }}
                         {{ author(article) }}
                     </span>
                 </div>
 
-                <a routerLink="../{{ article.slug_uri }}">
+                <a *ngIf="article.image_url" routerLink="../{{ article.slug_uri }}">
                     <img src="{{ article.image_url }}" class="thumbnail mb-2"/>
                 </a>
 
@@ -46,13 +46,13 @@
 
         <div *ngFor="let article of recent | async | paginate: { itemsPerPage: limit, currentPage: page, totalItems: total }"
              class="row animated fadeIn mb-2">
-            <div class="col-sm-12 col-md-5">
+            <div *ngIf="article.image_url" class="col-sm-12 col-md-5">
                 <a routerLink="../{{ article.slug_uri }}">
                     <img src="{{ article.image_url }}" class="thumbnail"/>
                 </a>
             </div>
 
-            <div class="col-sm-12 col-md-7">
+            <div [ngClass]="{ 'col-sm-9 col-md-7': article.image_url, 'col-sm-12': !article.image_url }">
                 <a routerLink="../{{ article.slug_uri }}" class="article-link">{{ article.title }}</a>
                 <br/>
 
