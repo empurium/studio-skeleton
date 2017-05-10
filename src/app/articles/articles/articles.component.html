@@ -6,22 +6,24 @@
         <!-- Vertical display -->
         <div *ngIf="needsFormat('vertical')" class="card">
             <div class="card-block">
-                <div class="article-header">
+                <div class="article-header mb-1">
                     <h4><a [routerLink]="url(article.slug_uri)">{{ article.title }}</a></h4>
-
-                    <span class="text-muted">
-                        Posted {{ published(article) }}<br />
-                        {{ author(article) }}
-                    </span>
                 </div>
 
                 <a [routerLink]="url(article.slug_uri)">
-                    <img src="{{ article.image_url }}" class="thumbnail mb-2" />
+                    <img src="{{ article.image_url }}" class="thumbnail mb-1" />
                 </a>
 
-                <p>{{ article.preview }}</p>
+                <p class="text-muted">
+                    Posted {{ published(article) }}<br />
+                    {{ author(article) }}
+                </p>
 
-                <a [routerLink]="url(article.slug_uri)">Read More</a>
+                <p [innerHTML]="article.preview | studioSanitizeHtml" class="preview-fade mb-0"></p>
+
+                <div class="text-center">
+                    <a [routerLink]="url(article.slug_uri)">Read More</a>
+                </div>
             </div>
         </div>
 
@@ -31,23 +33,25 @@
                 <div class="row">
                     <div class="col-sm-3 col-md-4">
                         <a [routerLink]="url(article.slug_uri)">
-                            <img src="{{ article.image_url }}" class="thumbnail mb-2" />
+                            <img src="{{ article.image_url }}" class="thumbnail mb-1" />
                         </a>
                     </div>
 
                     <div class="col-sm-9 col-md-8">
-                        <div class="article-header">
+                        <div class="article-header mb-1">
                             <h4><a [routerLink]="url(article.slug_uri)">{{ article.title }}</a></h4>
-
-                            <span class="text-muted">
-                                Posted {{ published(article) }}<br />
-                                {{ author(article) }}
-                            </span>
                         </div>
 
-                        <p>{{ article.preview }}</p>
+                        <p class="text-muted">
+                            Posted {{ published(article) }}<br />
+                            {{ author(article) }}
+                        </p>
 
-                        <a [routerLink]="url(article.slug_uri)">Read More</a>
+                        <p [innerHTML]="article.preview | studioSanitizeHtml" class="preview-fade mb-0"></p>
+
+                        <div class="text-center">
+                            <a [routerLink]="url(article.slug_uri)">Read More</a>
+                        </div>
                     </div>
                 </div>
             </div>
