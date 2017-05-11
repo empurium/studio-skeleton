@@ -7,10 +7,10 @@
         <div *ngIf="needsFormat('vertical')" class="card">
             <div class="card-block">
                 <div class="article-header mb-1">
-                    <h4><a [routerLink]="url(article.slug_uri)">{{ article.title }}</a></h4>
+                    <h4><a [routerLink]="url(article)" [queryParams]="queryParams(article)">{{ article.title }}</a></h4>
                 </div>
 
-                <a *ngIf="article.image_url" [routerLink]="url(article.slug_uri)">
+                <a *ngIf="article.image_url" [routerLink]="url(article)" [queryParams]="queryParams(article)">
                     <img src="{{ article.image_url }}" class="thumbnail mb-1" />
                 </a>
 
@@ -22,7 +22,7 @@
                 <p [innerHTML]="article.preview | studioSanitizeHtml" class="preview-fade mb-0"></p>
 
                 <div class="text-center">
-                    <a [routerLink]="url(article.slug_uri)">Read More</a>
+                    <a [routerLink]="url(article)" [queryParams]="queryParams(article)">Read More</a>
                 </div>
             </div>
         </div>
@@ -32,14 +32,14 @@
             <div class="card-block">
                 <div class="row">
                     <div *ngIf="article.image_url" class="col-sm-3 col-md-4">
-                        <a [routerLink]="url(article.slug_uri)">
+                        <a [routerLink]="url(article)" [queryParams]="queryParams(article)">
                             <img src="{{ article.image_url }}" class="thumbnail mb-1" />
                         </a>
                     </div>
 
                     <div [ngClass]="{ 'col-sm-9 col-md-8': article.image_url, 'col-sm-12': !article.image_url }">
                         <div class="article-header mb-0">
-                            <h4><a [routerLink]="url(article.slug_uri)">{{ article.title }}</a></h4>
+                            <h4><a [routerLink]="url(article)" [queryParams]="queryParams(article)">{{ article.title }}</a></h4>
                         </div>
 
                         <p class="text-muted">
@@ -50,7 +50,7 @@
                         <p [innerHTML]="article.preview | studioSanitizeHtml" class="preview-fade mb-0"></p>
 
                         <div class="text-center">
-                            <a [routerLink]="url(article.slug_uri)">Read More</a>
+                            <a [routerLink]="url(article)" [queryParams]="queryParams(article)">Read More</a>
                         </div>
                     </div>
                 </div>
