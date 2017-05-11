@@ -19,6 +19,7 @@ export class ArticlesComponent implements OnInit {
     @Input() public tiered: boolean;
     @Input() public routePrefix: string  = '';
     @Input() public pagination: boolean  = true;
+    @Input() public skipSales: boolean   = false;
     @Input() public format: string       = 'vertical';
     @Input() public limit: number        = 15;
     @Input() public columns: number      = 3;
@@ -138,6 +139,9 @@ export class ArticlesComponent implements OnInit {
      * TODO - Only give access if a user has the correct Subscription Tier!
      */
     public paid(article: Article): boolean {
+        if (this.skipSales) {
+            return false;
+        }
         if (this.subscriptions && this.subscriptions.length > 0) {
             return false; // TODO - THIS IS BAD
         }
