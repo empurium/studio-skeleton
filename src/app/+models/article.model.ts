@@ -13,7 +13,7 @@ export class Article {
     public published_at: string;
     public concealed_at: string;
     public is_published: boolean;
-    public tiers?: string[];
+    public tier_ids?: string[];
 }
 
 export class ArticleResponse extends Response {
