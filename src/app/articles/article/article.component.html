@@ -24,14 +24,17 @@
                     <!--<a class="a2a_button_linkedin"></a>-->
                 <!--</div>-->
 
-                <p [innerHTML]="article.preview | studioSanitizeHtml" [class.preview-fade]="!article.content"></p>
-
-                <div *ngIf="article.content">
-                    <p [innerHTML]="article.content | studioSanitizeHtml"></p>
-                </div>
+                <p *ngIf="!article.content"
+                   [innerHTML]="article.preview | studioSanitizeHtml"
+                   [class.preview-fade]="!article.content">
+                </p>
 
                 <div *ngIf="!article.content">
                     <studio-locker></studio-locker>
+                </div>
+
+                <div *ngIf="article.content">
+                    <p [innerHTML]="article.content | studioSanitizeHtml"></p>
                 </div>
             </div>
         </div>
