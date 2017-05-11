@@ -13,6 +13,7 @@ export * from './src/app/+directives';
 export * from './src/app/+services/window.service';
 export * from './src/app/+services/vinyl.service';
 export * from './src/app/+services/authentication.service';
+export * from './src/app/+services/subscription.service';
 export * from './src/app/+services/role.service';
 export * from './src/app/+services/tier.service';
 export * from './src/app/+services/tier-resource.service';

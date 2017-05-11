@@ -3,9 +3,9 @@ import * as moment from 'moment';
 import * as _ from 'lodash';
 import { Observable } from 'rxjs/Observable';
 
-import { ArticlesResponse, Article, Tier, TierResource } from '../../+models';
+import { ArticlesResponse, Article, TierResource, Subscription } from '../../+models';
 import { WindowService } from '../../+services/window.service';
-import { TierService } from '../../+services/tier.service';
+import { SubscriptionService } from '../../+services/subscription.service';
 import { TierResourceService } from '../../+services/tier-resource.service';
 import { ArticleService, QueryParams } from '../../+services/article.service';
 
@@ -17,28 +17,28 @@ import { ArticleService, QueryParams } from '../../+services/article.service';
 })
 export class ArticlesComponent implements OnInit {
     @Input() public tiered: boolean;
-    @Input() public routePrefix: string = '';
-    @Input() public pagination: boolean = true;
-    @Input() public format: string      = 'vertical';
-    @Input() public limit: number       = 15;
-    @Input() public columns: number     = 3;
+    @Input() public routePrefix: string  = '';
+    @Input() public pagination: boolean  = true;
+    @Input() public format: string       = 'vertical';
+    @Input() public limit: number        = 15;
+    @Input() public columns: number      = 3;
     public articles: Observable<Article[]>;
-    public articlesPaid: string[]       = [];
-    public userTiers: Tier[]            = [];
-    public page: number                 = 1;
-    public total: number                = 0;
-    public loading: boolean             = true;
+    public articlesPaid: string[]        = [];
+    public subscriptions: Subscription[] = [];
+    public page: number                  = 1;
+    public total: number                 = 0;
+    public loading: boolean              = true;
     private window: Window;
 
     constructor(private windowService: WindowService,
-                private tierService: TierService,
+                private subscriptionService: SubscriptionService,
                 private tierResourceService: TierResourceService,
                 private articleService: ArticleService) {
         this.window = this.windowService.nativeWindow;
     }
 
     public ngOnInit(): void {
-        this.loadTiers();
+        this.loadSubscriptions();
         this.load();
     }
 
@@ -75,13 +75,14 @@ export class ArticlesComponent implements OnInit {
      * Request the tiers for this user so we can decide if we are showing
      * them the full content or a paywall.
      */
-    public loadTiers(): void {
-        this.tierService.user().subscribe(
-            (tiers: Tier[]): Tier[] => this.userTiers = tiers,
-            (error: any): void => {
-                // User may not have any tiers
-            },
-        );
+    public loadSubscriptions(): void {
+        this.subscriptionService.all()
+            .subscribe(
+                (subscriptions: Subscription[]|null) => this.subscriptions = subscriptions,
+                (error: any): void => {
+                    // User may not have any subscriptions
+                },
+            );
     }
 
     /**
@@ -133,11 +134,11 @@ export class ArticlesComponent implements OnInit {
     }
 
     /**
-     * Return whether or not the article is in a Tier.
-     * TODO - Only give access if a user has the correct Tier!
+     * Return whether or not this article should be considered paid-only.
+     * TODO - Only give access if a user has the correct Subscription Tier!
      */
     public paid(article: Article): boolean {
-        if (this.userTiers && this.userTiers.length > 0) {
+        if (this.subscriptions && this.subscriptions.length > 0) {
             return false; // TODO - THIS IS BAD
         }
 
