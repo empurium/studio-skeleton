@@ -54,19 +54,6 @@ export class TierService {
     }
 
     /**
-     * Return whether or not the current user is in a Tier identifier.
-     */
-    public has(tierId: string): boolean {
-        if (!this.authentication.userId() || !this.userTiers || !this.userTiers.length) {
-            return false;
-        }
-
-        return this.userTiers
-                .map((tier: Tier) => tier.id)
-                .indexOf(tierId) >= 0;
-    }
-
-    /**
      * Clear the client-side cache.
      */
     public forget(): void {
