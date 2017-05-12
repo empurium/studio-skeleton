@@ -1,6 +1,12 @@
 .studio-articles {
   //display: flex;
 
+  .card-block {
+    img {
+      max-width: 100% !important;
+    }
+  }
+
   .thumbnail {
     width: 100%;
   }
