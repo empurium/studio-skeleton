@@ -4,7 +4,7 @@
 
     <a routerLink="./"
        [queryParams]="{ module: 'billing', step: 'intro' }"
-       class="btn btn-primary btn-lg btn-pointer mt-1">Become a Subscriber</a>
+       class="btn btn-cta btn-success btn-lg btn-pointer mt-1">Become a Subscriber</a>
 
     <div *ngIf="!authentication.authenticated()" class="mt-3">
         <p>
