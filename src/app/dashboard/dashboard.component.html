@@ -36,7 +36,7 @@
 
         <!-- not authenticated -->
         <li *ngIf="!authenticated()" class="nav-item">
-            <button (click)="login()" class="nav-link">
+            <button (click)="login()" type="button" class="nav-link hidden-sm-down">
                 Login
             </button>
         </li>
@@ -73,6 +73,13 @@
     <div class="sidebar" [class.hidden-lg-up]="needsLayout('fluid')">
         <nav class="sidebar-nav">
             <ul class="nav">
+                <li class="nav-item hidden-md-up">
+                    <button (click)="login()" type="button" class="nav-link btn btn-href btn-pointer">
+                        <i class="icon-login"></i> Login
+                    </button>
+                </li>
+                <li class="nav-separator hidden-md-up">&nbsp;</li>
+
                 <li *ngFor="let item of navigation" class="nav-item">
                     <span *ngIf="item.href && !item.routerLink">
                         <a *ngIf="show(item)"
