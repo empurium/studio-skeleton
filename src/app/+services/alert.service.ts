@@ -9,23 +9,23 @@ export class AlertService {
     constructor(private toastr: ToastsManager) {
     }
 
-    public success(title: string, message: string): void {
-        this.toastr.success(message, title);
+    public success(title: string, message: string, timeout: number = 3000): void {
+        this.toastr.success(message, title, { toastLife: timeout });
     }
 
-    public info(title: string, message: string): void {
-        this.toastr.info(message, title);
+    public info(title: string, message: string, timeout: number = 3000): void {
+        this.toastr.info(message, title, { toastLife: timeout });
     }
 
-    public warning(title: string, message: string): void {
-        this.toastr.warning(message, title);
+    public warning(title: string, message: string, timeout: number = 3000): void {
+        this.toastr.warning(message, title, { toastLife: timeout });
     }
 
-    public error(title: string, message: string): void {
-        this.toastr.error(message, title);
+    public error(title: string, message: string, timeout: number = 3000): void {
+        this.toastr.error(message, title, { toastLife: timeout });
     }
 
-    public errorMessage(error: ErrorMessage): void {
-        this.toastr.error(error.message, `${error.statusText}`, { toastLife: 10000 });
+    public errorMessage(error: ErrorMessage, timeout: number = 10000): void {
+        this.toastr.error(error.message, `${error.statusText}`, { toastLife: timeout });
     }
 }
