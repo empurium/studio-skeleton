@@ -1,6 +1,7 @@
 // Modules
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Angulartics2Module, Angulartics2GoogleAnalytics } from 'angulartics2';
 import { BsDropdownModule } from 'ngx-bootstrap';
 
 // Routing
@@ -16,6 +17,7 @@ import { SIDEBAR_TOGGLE_DIRECTIVES } from '../+directives/sidebar.directive';
 
 const MODULES: any = [
     CommonModule,
+    Angulartics2Module.forRoot([Angulartics2GoogleAnalytics]),
     BsDropdownModule.forRoot(),
 
     DashboardRoutingModule,

@@ -1,5 +1,6 @@
 import { Component, ViewContainerRef, ViewEncapsulation, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { Angulartics2GoogleAnalytics } from 'angulartics2';
 import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 
 import { AuthenticationService } from '../+services/authentication.service';
@@ -37,6 +38,7 @@ export class DashboardComponent {
                 protected alerts: AlertService,
                 protected authentication: AuthenticationService,
                 protected windowService: WindowService,
+                protected angulartics2GoogleAnalytics: Angulartics2GoogleAnalytics,
                 protected roles: RoleService) {
         this.window = this.windowService.nativeWindow;
         this.toastr.setRootViewContainerRef(this.vcr);
