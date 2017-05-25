@@ -4,13 +4,10 @@
 
     <a routerLink="./"
        [queryParams]="{ module: 'billing', step: 'intro' }"
-       class="btn btn-cta btn-success btn-lg btn-pointer mt-1">Become a Subscriber</a>
+       class="btn btn-cta btn-success btn-lg btn-pointer mt-1">Access this Publication</a>
 
     <div *ngIf="!authentication.authenticated()" class="mt-3">
-        <p>
-            Already a subscriber?
-            <br />
-            <button (click)="login()" class="btn btn-href btn-pointer">Login</button>
-        </p>
+        Already a subscriber?
+        <button (click)="login()" class="btn btn-href btn-pointer">Login</button>
     </div>
 </div>
