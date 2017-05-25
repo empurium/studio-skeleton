@@ -5,25 +5,29 @@
         <div class="card animated fadeIn" *ngIf="!loading">
             <div class="card-block">
                 <div class="article-header">
-                    <h2>{{ article.title }}</h2>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <img *ngIf="article.image_url" src="{{ article.image_url }}" class="thumbnail hidden-xs-down mb-0" />
 
-                    <span class="text-muted">
-                        Posted {{ published(article) }}
-                        {{ author(article) }}
-                    </span>
+                            <h2>{{ article.title }}</h2>
+
+                            <span class="text-muted">
+                                Posted {{ published(article) }}
+                                {{ author(article) }}
+                            </span>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- Hiding until we can make this smaller (on all screens)
-                <a *ngIf="article.image_url" routerLink="../{{ article.slug_uri }}">
-                    <img src="{{ article.image_url }}" class="thumbnail mb-2"/>
-                </a>
-                -->
+                <div *ngIf="article.image_url" class="hidden-sm-up mb-1">
+                    <img src="{{ article.image_url }}" class="thumbnail" />
+                </div>
 
                 <!-- Share buttons -->
                 <!--<div class="a2a_kit a2a_kit_size_32 a2a_default_style mb-2">-->
-                    <!--<a class="a2a_button_facebook"></a>-->
-                    <!--<a class="a2a_button_twitter"></a>-->
-                    <!--<a class="a2a_button_linkedin"></a>-->
+                <!--<a class="a2a_button_facebook"></a>-->
+                <!--<a class="a2a_button_twitter"></a>-->
+                <!--<a class="a2a_button_linkedin"></a>-->
                 <!--</div>-->
 
                 <p *ngIf="!article.content"
