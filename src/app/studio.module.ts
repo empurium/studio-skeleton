@@ -5,7 +5,7 @@ import { OAuthService } from 'angular-oauth2-oidc';
 import { ModalModule, BsDropdownModule } from 'ngx-bootstrap';
 import { ToastModule, ToastOptions } from 'ng2-toastr';
 import { DateTimePickerModule } from 'ng-pick-datetime';
-import { HttpService } from '@freescan/http';
+import { HttpService } from '@rndstudio/http';
 
 // Environment
 import { ToastConfig } from './configuration';

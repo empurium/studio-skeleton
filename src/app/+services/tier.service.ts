@@ -1,5 +1,5 @@
 import { Injectable, Inject } from '@angular/core';
-import { HttpService } from '@freescan/http';
+import { HttpService } from '@rndstudio/http';
 import { Observable } from 'rxjs';
 
 import { FREESCAN_ENV, Environment, Tier, TiersResponse } from '../+models';

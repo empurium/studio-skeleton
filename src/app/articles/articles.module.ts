@@ -4,7 +4,7 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { OAuthService } from 'angular-oauth2-oidc';
 import { NgxPaginationModule } from 'ngx-pagination';
-import { HttpService } from '@freescan/http';
+import { HttpService } from '@rndstudio/http';
 
 // Core
 import { FREESCAN_ENV } from '../+models';

@@ -18,7 +18,7 @@ quickly with the services above.
 
 ### Save the dependency
 ```
-yarn add @freescan/skeleton
+yarn add @rndstudio/skeleton
 ```
 
 ### Copy some files to your repository
@@ -59,7 +59,7 @@ Lastly, make a script tag which sets the theme to `bs4` for some Bootstrap 4 fun
 import { environment } from '@env/environment';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { DashboardModule, StudioModule } from '@freescan/skeleton';
+import { DashboardModule, StudioModule } from '@rndstudio/skeleton';
 
 @NgModule({
     imports: [
@@ -76,7 +76,7 @@ import { DashboardModule, StudioModule } from '@freescan/skeleton';
 
 
 ##### Extend DashboardComponent
-In your `AppComponent`, extend the `DashboardComponent` from **@freescan/skeleton**,
+In your `AppComponent`, extend the `DashboardComponent` from **@rndstudio/skeleton**,
 and call the `<freescan-dashboard>` component within your `AppComponent` template.
 
 The `DashboardComponent` takes an input parameter called `navigation`, the structure of which is

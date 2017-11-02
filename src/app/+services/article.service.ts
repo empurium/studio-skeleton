@@ -1,6 +1,6 @@
 import { Injectable, Inject } from '@angular/core';
 import * as _ from 'lodash';
-import { HttpService } from '@freescan/http';
+import { HttpService } from '@rndstudio/http';
 import { Observable } from 'rxjs/Observable';
 
 import { FREESCAN_ENV, Environment, Article, ArticleResponse, ArticlesResponse } from '../+models';
