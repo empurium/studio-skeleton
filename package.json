@@ -28,7 +28,7 @@
     "@angular/http": "^4.4.6",
     "@angular/platform-browser": "^4.4.6",
     "@angular/router": "^4.4.6",
-    "@rndstudio/http": "^1.1.5",
+    "@rndstudio/http": "^1.1.6",
     "angular-oauth2-oidc": "^1.0.20",
     "angular2-jwt": "^0.2.0",
     "angulartics2": "^2.2.1",

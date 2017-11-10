@@ -51,8 +51,8 @@
     tslib "^1.7.1"
 
 "@rndstudio/http@^1.1.5":
-  version "1.1.5"
-  resolved "https://registry.yarnpkg.com/@rndstudio/http/-/http-1.1.5.tgz#26b031e6006cd97ed714a0882c7b15e76c2707ba"
+  version "1.1.6"
+  resolved "https://registry.yarnpkg.com/@rndstudio/http/-/http-1.1.6.tgz#9b25258ca570d106473ae2abc1ba7b503a3ab238"
   dependencies:
     "@angular/core" "^4.4.6"
     "@angular/http" "^4.4.6"
