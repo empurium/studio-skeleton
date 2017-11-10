@@ -1,6 +1,6 @@
 {
   "name": "@rndstudio/skeleton",
-  "version": "1.13.2",
+  "version": "1.13.3",
   "description": "Publication Studio Skeleton",
   "main": "index.ts",
   "scripts": {
