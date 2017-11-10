@@ -21,14 +21,14 @@
   },
   "homepage": "https://github.com/RnDStudio/studio-skeleton#readme",
   "dependencies": {
-    "@angular/animations": "^4.0.1",
-    "@angular/common": "^4.0.1",
-    "@angular/core": "^4.0.1",
-    "@angular/forms": "^4.0.1",
-    "@angular/http": "^4.0.1",
-    "@angular/platform-browser": "^4.0.1",
-    "@angular/router": "^4.0.1",
-    "@rndstudio/http": "^1.1.4",
+    "@angular/animations": "^4.4.6",
+    "@angular/common": "^4.4.6",
+    "@angular/core": "^4.4.6",
+    "@angular/forms": "^4.4.6",
+    "@angular/http": "^4.4.6",
+    "@angular/platform-browser": "^4.4.6",
+    "@angular/router": "^4.4.6",
+    "@rndstudio/http": "^1.1.5",
     "angular-oauth2-oidc": "^1.0.20",
     "angular2-jwt": "^0.2.0",
     "angulartics2": "^2.2.1",
@@ -39,14 +39,14 @@
     "ng2-toastr": "^4.0.1",
     "ngx-bootstrap": "1.6.6",
     "ngx-pagination": "^3.0.0",
-    "zone.js": "^0.8.5"
+    "zone.js": "^0.8.12"
   },
   "devDependencies": {
-    "@angular/compiler": "^4.0.1",
-    "codelyzer": "^3.0.0-beta.4",
-    "rxjs": "^5.2.0",
-    "tslint": "^4.5.1",
-    "tslint-eslint-rules": "^3.5.1",
-    "typescript": "^2.2.1"
+    "@angular/compiler": "^4.4.6",
+    "codelyzer": "~3.2.2",
+    "rxjs": "^5.0.0",
+    "tslint": "5.7.0",
+    "tslint-eslint-rules": "4.1.1",
+    "typescript": "2.3.2"
   }
 }
