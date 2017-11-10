@@ -34,53 +34,53 @@ export class VinylService {
         let redirectURI: string = `http://${hostname}`;
 
         switch (hostname) {
-        // Publication Studio
-        case 'publication.studio.local':
-            clientId    = '4';
-            redirectURI = `${redirectURI}:5001`;
-            break;
-        case 'staging.publication.studio':
-            clientId    = '4';
-            break;
-        case 'publication.studio':
-            clientId    = '1';
-            redirectURI = `https://${hostname}`;
-            break;
+            // Publication Studio
+            case 'publication.studio.test':
+                clientId    = '4';
+                redirectURI = `${redirectURI}:5001`;
+                break;
+            case 'staging.publication.studio':
+                clientId    = '4';
+                break;
+            case 'publication.studio':
+                clientId    = '1';
+                redirectURI = `https://${hostname}`;
+                break;
 
-        // 720 Global
-        case 'studio.720global.local':
-            clientId    = '8';
-            redirectURI = `${redirectURI}:5001`;
-            break;
-        case 'staging-studio.720global.com':
-            clientId = '8';
-            break;
-        case 'studio.720global.com':
-            clientId    = '4';
-            redirectURI = `https://${hostname}`;
-            break;
+            // 720 Global
+            case 'studio.720global.test':
+                clientId    = '8';
+                redirectURI = `${redirectURI}:5001`;
+                break;
+            case 'staging-studio.720global.com':
+                clientId = '8';
+                break;
+            case 'studio.720global.com':
+                clientId    = '4';
+                redirectURI = `https://${hostname}`;
+                break;
 
-        // 360 Global
-        case 'studio.360global.local':
-            clientId    = '12';
-            redirectURI = `${redirectURI}:5001`;
-            break;
-        case 'staging-studio.360global.space':
-            clientId = '12';
-            break;
-        case 'studio.360global.space':
-            clientId    = '6';
-            redirectURI = `https://${hostname}`;
-            break;
+            // 360 Global
+            case 'studio.360global.test':
+                clientId    = '12';
+                redirectURI = `${redirectURI}:5001`;
+                break;
+            case 'staging-studio.360global.space':
+                clientId = '12';
+                break;
+            case 'studio.360global.space':
+                clientId    = '6';
+                redirectURI = `https://${hostname}`;
+                break;
         }
 
         return { clientId, redirectURI };
     }
 
     /**
-     * True if the hostname ends with .local.
+     * True if the hostname ends with .test.
      */
     private local(domain: string[]): boolean {
-        return domain[domain.length - 1] === 'local';
+        return domain[domain.length - 1] === 'test';
     }
 }
