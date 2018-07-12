@@ -47,19 +47,6 @@ export class VinylService {
                 redirectURI = `https://${hostname}`;
                 break;
 
-            // 720 Global
-            case 'studio.720global.test':
-                clientId    = '8';
-                redirectURI = `${redirectURI}:5001`;
-                break;
-            case 'staging-studio.720global.com':
-                clientId = '8';
-                break;
-            case 'studio.720global.com':
-                clientId    = '4';
-                redirectURI = `https://${hostname}`;
-                break;
-
             // 360 Global
             case 'studio.360global.test':
                 clientId    = '12';
