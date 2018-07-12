@@ -1,4 +1,4 @@
-# FreeScan Skeleton
+# RnDStudio Dashboard Skeleton
 
 [![codebeat badge](https://codebeat.co/badges/d131f852-3d63-4359-93cd-131cfdf4e04b)](https://codebeat.co/a/michael/projects/github-com-freescandotcom-freescan-skeleton-master)
 
