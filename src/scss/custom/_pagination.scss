@@ -1,9 +1,0 @@
-ul.ngx-pagination {
-  padding-left: 0;
-  li {
-    cursor: pointer;
-    &.current {
-      background-color: $brand-primary;
-    }
-  }
-}
